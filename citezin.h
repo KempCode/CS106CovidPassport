@@ -42,7 +42,7 @@ private:
 
 
 public:
-    Citezin();
+    //Citezin();
     Citezin(QString password, QString first, QString middle, QString last,
     QString dob, QString ethnicity, QString nationality, QString gender,
     QString phoneNumber, QString email, QString streetAddress, int postcode,
