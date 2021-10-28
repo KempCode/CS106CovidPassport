@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "citezin.h"
 
 #include <QMainWindow>
 
@@ -17,5 +18,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QVector<Citezin*>citezinList;
 };
 #endif // MAINWINDOW_H
