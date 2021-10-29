@@ -26,7 +26,7 @@
       <x>320</x>
       <y>30</y>
       <width>631</width>
-      <height>491</height>
+      <height>501</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -41,9 +41,9 @@ box-sizing: border-box;</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>20</y>
        <width>250</width>
-       <height>221</height>
+       <height>231</height>
       </rect>
      </property>
      <property name="autoFillBackground">
@@ -95,7 +95,7 @@ background: #F4F4F4;
     <widget class="QLabel" name="QRImage">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>340</x>
        <y>30</y>
        <width>221</width>
        <height>171</height>
@@ -113,7 +113,7 @@ background: #F4F4F4;
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>10</y>
+       <y>20</y>
        <width>121</width>
        <height>16</height>
       </rect>
@@ -187,7 +187,7 @@ background: linear-gradient(0deg, rgba(244, 244, 244, 0.94), rgba(244, 244, 244,
        <x>10</x>
        <y>390</y>
        <width>611</width>
-       <height>91</height>
+       <height>101</height>
       </rect>
      </property>
      <property name="autoFillBackground">
@@ -736,7 +736,7 @@ color: #000000;
     <widget class="QLabel" name="TR_1">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>150</x>
        <y>290</y>
        <width>91</width>
        <height>16</height>
@@ -752,7 +752,7 @@ color: #000000;
     <widget class="QLabel" name="TR_2">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>150</x>
        <y>310</y>
        <width>91</width>
        <height>16</height>
@@ -1050,7 +1050,7 @@ color: #000000;
     <widget class="QLabel" name="UD_7">
      <property name="geometry">
       <rect>
-       <x>480</x>
+       <x>470</x>
        <y>400</y>
        <width>71</width>
        <height>16</height>
@@ -1163,7 +1163,7 @@ color: #000000;
       <x>10</x>
       <y>30</y>
       <width>301</width>
-      <height>491</height>
+      <height>501</height>
      </rect>
     </property>
     <property name="styleSheet">
