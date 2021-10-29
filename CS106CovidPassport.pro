@@ -18,6 +18,13 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    Certificate.ui \
+    CovidTest.ui \
+    ReportIssue.ui \
+    UserDetails.ui \
+    UserDoc.ui \
+    UserReport.ui \
+    VaccineDetails.ui \
     mainwindow.ui
 
 # Default rules for deployment.
