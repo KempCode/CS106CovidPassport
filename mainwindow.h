@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "citezin.h"
+#include "citezindetaildialog.h"
+
 
 #include <QMainWindow>
 
@@ -15,9 +17,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void handleNewCitezin();
 
 private:
     Ui::MainWindow *ui;
+
     QVector<Citezin*>citezinList;
 };
 #endif // MAINWINDOW_H

@@ -68,6 +68,9 @@ QString Citezin::getMiddleName(){
 QString Citezin::getLastName(){
     return lastName;
 }
+QString Citezin::getName(){
+    return firstName + " " + middleName + " " + lastName;
+}
 QString Citezin::getDOB(){
     return DOB;
 }

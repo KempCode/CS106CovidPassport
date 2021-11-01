@@ -61,6 +61,7 @@ public:
     QString getFirstName();
     QString getMiddleName();
     QString getLastName();
+    QString getName();
     QString getDOB();
     QString getPhoneNumber();
     QString getEthnicity();

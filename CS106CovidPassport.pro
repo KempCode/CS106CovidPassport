@@ -12,7 +12,7 @@ SOURCES += \
     citezin.cpp \
     citezincovidpassport.cpp \
     citezincovidtest.cpp \
-    citezindetails.cpp \
+    citezindetaildialog.cpp \
     citezindoc.cpp \
     citezinreport.cpp \
     citezinreportissue.cpp \
@@ -24,7 +24,7 @@ HEADERS += \
     citezin.h \
     citezincovidpassport.h \
     citezincovidtest.h \
-    citezindetails.h \
+    citezindetaildialog.h \
     citezindoc.h \
     citezinreport.h \
     citezinreportissue.h \
@@ -34,7 +34,7 @@ HEADERS += \
 FORMS += \
     citezincovidpassport.ui \
     citezincovidtest.ui \
-    citezindetails.ui \
+    citezindetaildialog.ui \
     citezindoc.ui \
     citezinreport.ui \
     citezinreportissue.ui \

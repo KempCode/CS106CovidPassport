@@ -1204,7 +1204,7 @@ background: linear-gradient(0deg, rgba(244, 244, 244, 0.94), rgba(244, 244, 244,
       <string>Search</string>
      </property>
     </widget>
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QListWidget" name="lstCitezins">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1225,14 +1225,14 @@ background: linear-gradient(0deg, rgba(244, 244, 244, 0.94), rgba(244, 244, 244,
      <x>0</x>
      <y>0</y>
      <width>959</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionCreate_User"/>
+    <addaction name="actionNewCitezin"/>
     <addaction name="actionModify_User"/>
     <addaction name="actionLoad_Users"/>
     <addaction name="actionSave_Users"/>
@@ -1241,7 +1241,7 @@ background: linear-gradient(0deg, rgba(244, 244, 244, 0.94), rgba(244, 244, 244,
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionCreate_User">
+  <action name="actionNewCitezin">
    <property name="text">
     <string>Create User</string>
    </property>

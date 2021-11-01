@@ -1,6 +1,6 @@
 #ifndef CITEZINREPORT_H
 #define CITEZINREPORT_H
-
+#include "citezin.h"
 #include <QMainWindow>
 
 namespace Ui {
