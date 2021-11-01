@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>CitezinReportIssue</class>
+ <widget class="QMainWindow" name="CitezinReportIssue">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
+      <x>30</x>
+      <y>10</y>
       <width>474</width>
       <height>447</height>
      </rect>
@@ -147,7 +147,7 @@ color: #000000;</string>
      <x>0</x>
      <y>0</y>
      <width>534</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

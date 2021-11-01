@@ -10,21 +10,35 @@ CONFIG += c++11
 
 SOURCES += \
     citezin.cpp \
+    citezincovidpassport.cpp \
+    citezincovidtest.cpp \
+    citezindetails.cpp \
+    citezindoc.cpp \
+    citezinreport.cpp \
+    citezinreportissue.cpp \
+    citezinvaccinedetails.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     citezin.h \
+    citezincovidpassport.h \
+    citezincovidtest.h \
+    citezindetails.h \
+    citezindoc.h \
+    citezinreport.h \
+    citezinreportissue.h \
+    citezinvaccinedetails.h \
     mainwindow.h
 
 FORMS += \
-    Certificate.ui \
-    CovidTest.ui \
-    ReportIssue.ui \
-    UserDetails.ui \
-    UserDoc.ui \
-    UserReport.ui \
-    VaccineDetails.ui \
+    citezincovidpassport.ui \
+    citezincovidtest.ui \
+    citezindetails.ui \
+    citezindoc.ui \
+    citezinreport.ui \
+    citezinreportissue.ui \
+    citezinvaccinedetails.ui \
     mainwindow.ui
 
 # Default rules for deployment.

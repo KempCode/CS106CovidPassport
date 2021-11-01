@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>CitezinDoc</class>
+ <widget class="QMainWindow" name="CitezinDoc">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>534</width>
+    <width>550</width>
     <height>534</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>20</y>
       <width>508</width>
       <height>149</height>
@@ -393,7 +393,7 @@ color: #000000;</string>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>20</x>
       <y>190</y>
       <width>508</width>
       <height>292</height>
@@ -406,8 +406,8 @@ color: #000000;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>534</width>
-     <height>21</height>
+     <width>550</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>

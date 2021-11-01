@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>citezinReport</class>
+ <widget class="QMainWindow" name="citezinReport">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>534</width>
-    <height>534</height>
+    <width>550</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>10</y>
       <width>526</width>
       <height>494</height>
@@ -614,42 +614,12 @@ color: #000000;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>534</width>
-     <height>21</height>
+     <width>550</width>
+     <height>20</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionView_Documents"/>
-    <addaction name="actionCertificate"/>
-    <addaction name="actionReport_Issue"/>
-    <addaction name="actionLogout"/>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionView_Documents">
-   <property name="text">
-    <string>View Documents</string>
-   </property>
-  </action>
-  <action name="actionCertificate">
-   <property name="text">
-    <string>Certificate</string>
-   </property>
-  </action>
-  <action name="actionReport_Issue">
-   <property name="text">
-    <string>Report Issue</string>
-   </property>
-  </action>
-  <action name="actionLogout">
-   <property name="text">
-    <string>Logout</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

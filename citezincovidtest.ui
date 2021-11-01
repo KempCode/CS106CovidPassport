@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>CitezinCovidTest</class>
+ <widget class="QMainWindow" name="CitezinCovidTest">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,8 +17,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
+      <x>50</x>
+      <y>10</y>
       <width>451</width>
       <height>484</height>
      </rect>
@@ -244,7 +244,7 @@ box-sizing: border-box;</string>
      <x>0</x>
      <y>0</y>
      <width>534</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
