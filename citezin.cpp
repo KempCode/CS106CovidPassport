@@ -40,9 +40,10 @@ QString batchNumber3, int numberOfDoses, QString timeOfFirstVaccine, QString tim
 }
 
 //Setter
-void Citezin::setTestDetails(QString covidTestDate, QString covidTestResult){
+void Citezin::setTestDetails(QString covidTestDate, QString covidTestResult, QString strainOfVirus){
     this->covidTestDate = covidTestDate;
     this->covidTestResult = covidTestResult;
+    this->strainOfVirus = strainOfVirus;
 }
 
 //Setter

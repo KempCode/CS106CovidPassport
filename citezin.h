@@ -32,6 +32,7 @@ private:
     QString timeOfBooster;
     QString covidTestDate;
     QString covidTestResult;
+    QString strainOfVirus;
     //Files.
     QString userPhotoFilepath;
     QString userDocumentFilePath;
@@ -52,7 +53,7 @@ public:
     QString batchNumber3, int numberOfDoses, QString timeOfFirstVaccine, QString timeOfSecondVaccine,
     bool fullyVaccinated, QString covidVaccineNumber, QString timeOfBooster);
 
-    void setTestDetails(QString covidTestDate, QString covidTestResult);
+    void setTestDetails(QString covidTestDate, QString covidTestResult, QString strainOfVirus);
 
     void setFileDetails(QString userPhotoFilepath, QString userDocumentFilePath,
                         QString userQRFilepath, QString testResultFilePath);
