@@ -15,6 +15,7 @@ SOURCES += \
     citezingeneralreport.cpp \
     citezinreportissuedialog.cpp \
     covidpassportdialog.cpp \
+    logindialog.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -25,6 +26,7 @@ HEADERS += \
     citezingeneralreport.h \
     citezinreportissuedialog.h \
     covidpassportdialog.h \
+    logindialog.h \
     mainwindow.h
 
 FORMS += \
@@ -33,6 +35,7 @@ FORMS += \
     citezingeneralreport.ui \
     citezinreportissuedialog.ui \
     covidpassportdialog.ui \
+    logindialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.

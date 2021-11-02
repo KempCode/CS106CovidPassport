@@ -4,6 +4,7 @@
 #include "citezindetaildialog.h"
 
 
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -21,6 +22,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
 
     QVector<Citezin*>citezinList;
 };
