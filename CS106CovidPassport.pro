@@ -17,7 +17,8 @@ SOURCES += \
     covidpassportdialog.cpp \
     logindialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    userwindow.cpp
 
 HEADERS += \
     citezin.h \
@@ -27,7 +28,8 @@ HEADERS += \
     citezinreportissuedialog.h \
     covidpassportdialog.h \
     logindialog.h \
-    mainwindow.h
+    mainwindow.h \
+    userwindow.h
 
 FORMS += \
     citezindetaildialog.ui \
@@ -36,7 +38,8 @@ FORMS += \
     citezinreportissuedialog.ui \
     covidpassportdialog.ui \
     logindialog.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    userwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
