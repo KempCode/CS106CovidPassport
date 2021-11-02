@@ -450,7 +450,7 @@ box-sizing: border-box;</string>
       <rect>
        <x>340</x>
        <y>80</y>
-       <width>113</width>
+       <width>111</width>
        <height>20</height>
       </rect>
      </property>
@@ -548,7 +548,7 @@ box-sizing: border-box;</string>
     <widget class="QDateEdit" name="dateEdit">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>340</x>
        <y>110</y>
        <width>110</width>
        <height>22</height>
@@ -636,7 +636,7 @@ color: #000000;</string>
       <rect>
        <x>490</x>
        <y>60</y>
-       <width>311</width>
+       <width>351</width>
        <height>491</height>
       </rect>
      </property>
@@ -670,7 +670,7 @@ color: #000000;</string>
        <rect>
         <x>140</x>
         <y>20</y>
-        <width>113</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -702,7 +702,7 @@ color: #000000;</string>
        <rect>
         <x>140</x>
         <y>50</y>
-        <width>113</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -800,7 +800,7 @@ color: #000000;</string>
        <rect>
         <x>140</x>
         <y>80</y>
-        <width>113</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -808,7 +808,376 @@ color: #000000;</string>
      <widget class="QLabel" name="userDetailsImage_2">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>150</x>
+        <y>350</y>
+        <width>141</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="vaccineNameLabel_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Date of Second Vaccine</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="vaccineNameLabel_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>210</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Batch Number 2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="vaccineNameLabel_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>151</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Date of Third Vaccine</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="vaccineNameLabel_10">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>270</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Batch Number 3</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="vaccineNameEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>150</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="vaccineNameEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>210</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="vaccineNameEdit_9">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>270</y>
+        <width>141</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="uploadDocLabel_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>320</y>
+        <width>191</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Upload Vaccine Certificate</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="uploadButton_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>360</y>
+        <width>100</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(237, 215, 22);
+</string>
+      </property>
+      <property name="text">
+       <string>Upload</string>
+      </property>
+     </widget>
+     <widget class="QDateTimeEdit" name="dateTimeEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>180</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateTimeEdit" name="dateTimeEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>240</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateTimeEdit" name="dateTimeEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>120</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_4">
+     <property name="geometry">
+      <rect>
+       <x>850</x>
+       <y>60</y>
+       <width>371</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QLabel" name="vaccineNameLabel_11">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>40</y>
+        <width>71</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Test Date</string>
+      </property>
+     </widget>
+     <widget class="QDateTimeEdit" name="dateTimeEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>40</y>
+        <width>194</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="vaccineNameLabel_12">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>100</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Positive For Coronavirus</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>100</y>
+        <width>51</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>100</y>
+        <width>51</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>No</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="vaccineNameLabel_13">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>150</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Strain Of Virus</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="vaccineNameEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>150</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="uploadDocLabel_3">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>270</y>
+        <width>191</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>Upload Covid Test Document</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="uploadButton_3">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>300</y>
+        <width>100</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(237, 215, 22);
+</string>
+      </property>
+      <property name="text">
+       <string>Upload</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="userDetailsImage_3">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
         <y>330</y>
         <width>150</width>
         <height>150</height>
