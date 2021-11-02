@@ -17,7 +17,8 @@ public:
     ~citezinDetailDialog();
     void addCitezinDetails();
     void loadCitezinDetailsImage();
-
+    void getVaccineDetails();
+    void getTestDetails();
 private:
     Ui::citezinDetailDialog *ui;
     //Instantiate pointer to pointer for citezinList MVC model Vector.

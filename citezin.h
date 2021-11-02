@@ -16,7 +16,7 @@ private:
     QString phoneNumber;
     QString email;
     QString streetAddress;
-    int postCode;
+    QString postCode;
     QString NHINumber;
     QString clinicName;
     QString clinicAddress;
@@ -45,8 +45,8 @@ public:
     //Citezin();
     Citezin(QString password, QString first, QString middle, QString last,
     QString dob, QString ethnicity, QString nationality, QString gender,
-    QString phoneNumber, QString email, QString streetAddress, int postcode,
-    QString nhi, QString clinicName, QString clinicAddress);
+    QString phoneNumber, QString email, QString streetAddress, QString postcode,
+    QString nhi, QString clinicName, QString clinicAddress, QString userDetailsFilePath);
 
     void setVaccineDetails(QString vaccineName, QString batchNumber1, QString batchNumber2,
     QString batchNumber3, int numberOfDoses, QString timeOfFirstVaccine, QString timeOfSecondVaccine,
@@ -55,7 +55,7 @@ public:
     void setTestDetails(QString covidTestDate, QString covidTestResult);
 
     void setFileDetails(QString userPhotoFilepath, QString userDocumentFilePath,
-    QString userDetailsFilePath, QString userQRFilepath, QString testResultFilePath);
+                        QString userQRFilepath, QString testResultFilePath);
 
     QString getPassword();
     QString getFirstName();
@@ -68,7 +68,7 @@ public:
     QString getNationality();
     QString getGender();
     QString getStreetAddress();
-    int getPostcode();
+    QString getPostcode();
 
     QString getEmail();
     QString getNHINumber();

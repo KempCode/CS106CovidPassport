@@ -18,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 
-
 void MainWindow::handleNewCitezin()
 {
     //Event listener for creating new citezin - open modal window.
@@ -26,6 +25,7 @@ void MainWindow::handleNewCitezin()
     citezinDetailDialog detailDialog(newCit, nullptr);
     detailDialog.setModal(true);
     detailDialog.exec();
+
     if(newCit != nullptr){
         //datamodel adding to qvec
         citezinList.push_back(newCit);

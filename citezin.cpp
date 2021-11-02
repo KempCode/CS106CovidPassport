@@ -3,8 +3,8 @@
 //Constructor
 Citezin::Citezin(QString password, QString first, QString middle, QString last,
 QString dob, QString ethnicity, QString nationality, QString gender,
-QString phoneNumber, QString email, QString streetAddress, int postcode,
-        QString nhi, QString clinicName, QString clinicAddress){
+QString phoneNumber, QString email, QString streetAddress, QString postcode,
+        QString nhi, QString clinicName, QString clinicAddress, QString userDetailsFilePath){
     this->password = password;
     this->firstName = first;
     this->middleName = middle;
@@ -20,6 +20,7 @@ QString phoneNumber, QString email, QString streetAddress, int postcode,
     this->NHINumber = nhi;
     this->clinicName = clinicName;
     this->clinicAddress = clinicAddress;
+    this->userDetailsFilePath = userDetailsFilePath;
 }
 
 //Setter
@@ -45,11 +46,10 @@ void Citezin::setTestDetails(QString covidTestDate, QString covidTestResult){
 }
 
 //Setter
-void Citezin::setFileDetails(QString userPhotoFilepath, QString userDocumentFilePath,
-     QString userDetailsFilePath, QString userQRFilepath, QString testResultFilePath){
+void Citezin::setFileDetails(QString userPhotoFilepath="", QString userDocumentFilePath="",
+     QString userQRFilepath="", QString testResultFilePath=""){
     this->userPhotoFilepath = userPhotoFilepath;
     this->userDocumentFilePath = userDocumentFilePath;
-    this->userDetailsFilePath = userDetailsFilePath;
     this->userQRFilepath = userQRFilepath;
     this->testResultFilePath = testResultFilePath;
 }
@@ -89,7 +89,7 @@ QString Citezin::getGender(){
 QString Citezin::getStreetAddress(){
     return streetAddress;
 }
-int Citezin::getPostcode(){
+QString Citezin::getPostcode(){
     return postCode;
 }
 
