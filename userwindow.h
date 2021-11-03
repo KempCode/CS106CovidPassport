@@ -15,6 +15,15 @@ public:
     explicit UserWindow(QWidget *parent = nullptr);
     ~UserWindow();
 
+private slots:
+    void on_actionReport_Issue_triggered();
+
+    void on_actionView_Certificate_triggered();
+
+    void on_actionView_Documents_triggered();
+
+    void on_actionLogout_triggered();
+
 private:
     Ui::UserWindow *ui;
 };
