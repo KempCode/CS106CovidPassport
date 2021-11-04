@@ -114,7 +114,7 @@ color: #000000;</string>
       <string>Please describe the issue that you are facing.</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="reportissue">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -124,7 +124,7 @@ color: #000000;</string>
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="submit">
      <property name="geometry">
       <rect>
        <x>190</x>

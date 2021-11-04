@@ -15,6 +15,7 @@ SOURCES += \
     citezingeneralreport.cpp \
     citezinreportissuedialog.cpp \
     covidpassportdialog.cpp \
+    issue.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     citezingeneralreport.h \
     citezinreportissuedialog.h \
     covidpassportdialog.h \
+    issue.h \
     logindialog.h \
     mainwindow.h \
     userwindow.h
