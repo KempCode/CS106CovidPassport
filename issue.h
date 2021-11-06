@@ -7,7 +7,7 @@ class Issue
 public:
     Issue(QString reportissue);
     void setIssue(QString reportissue);
-    QString getIssue(QString reportissue);
+    QString getIssue()const;
 private:
     QString reportissue;
 };

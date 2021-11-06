@@ -8,7 +8,7 @@ void Issue::setIssue(QString reportissue)
 {
     this->reportissue=reportissue;
 }
-QString Issue::getIssue(QString reportissue)
+QString Issue::getIssue()const
 {
     return reportissue;
 }

@@ -11,8 +11,11 @@ UserWindow::UserWindow(QWidget *parent) :
     ui(new Ui::UserWindow)
 {
     ui->setupUi(this);
-    //    connect(ui->actionNewCitezin, &QAction::triggered,
-    //this, &MainWindow::handleNewCitezin);
+    connect (ui->actionReport_Issue, &QAction::triggered,this,&UserWindow::on_actionReport_Issue_triggered);
+    connect (ui->actionView_Certificate, &QAction::triggered,this,&UserWindow::on_actionView_Certificate_triggered);
+    connect (ui->actionView_Documents, &QAction::triggered,this,&UserWindow::on_actionView_Documents_triggered);
+    connect (ui->actionLogout, &QAction::triggered,this,&UserWindow::on_actionLogout_triggered);
+ ;
 
 }
 
@@ -24,7 +27,8 @@ UserWindow::~UserWindow()
 
 void UserWindow::on_actionReport_Issue_triggered()
 {
-    citezinReportIssueDialog issue;
+    Issue *newissue =nullptr;
+    citezinReportIssueDialog issue(newissue,nullptr);
     issue.setModal(true);
     issue.exec();
 }

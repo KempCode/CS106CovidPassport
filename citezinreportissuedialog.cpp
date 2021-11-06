@@ -9,6 +9,7 @@ citezinReportIssueDialog::citezinReportIssueDialog(Issue*& newissue, QWidget *pa
     QDialog(parent),
     ui(new Ui::citezinReportIssueDialog)
 {
+    this->newissue=&newissue;
     ui->setupUi(this);
 
     //registering events
@@ -43,6 +44,6 @@ void citezinReportIssueDialog::confirmSubmit()
 
      for (Issue * productIssue:reportissue)
      {
-         out<<productIssue->getIssue()<<","Qt::endl;
+         out<<productIssue->getIssue()<<","<<Qt::endl;
      }
 }
