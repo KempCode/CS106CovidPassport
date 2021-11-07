@@ -1423,7 +1423,7 @@ background: linear-gradient(0deg, rgba(244, 244, 244, 0.94), rgba(244, 244, 244,
     <addaction name="actionNewCitezin"/>
     <addaction name="actionModify_User"/>
     <addaction name="actionLoad_Users"/>
-    <addaction name="actionSave_Users"/>
+    <addaction name="actionSaveCitezins"/>
     <addaction name="actionExit"/>
    </widget>
    <addaction name="menuFile"/>
@@ -1444,7 +1444,7 @@ background: linear-gradient(0deg, rgba(244, 244, 244, 0.94), rgba(244, 244, 244,
     <string>Load Users</string>
    </property>
   </action>
-  <action name="actionSave_Users">
+  <action name="actionSaveCitezins">
    <property name="text">
     <string>Save Users</string>
    </property>

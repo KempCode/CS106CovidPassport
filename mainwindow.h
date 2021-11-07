@@ -19,6 +19,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void handleNewCitezin();
+    void saveCitezins();
 
 private:
     Ui::MainWindow *ui;

@@ -95,7 +95,6 @@ public:
     QString getUserDocumentFilePath();
     QString getUserDetailsFilePath();
     QString getUserQRFilepath();
-    QString getCertificateFilepath();
     QString getTestResultFilePath();
     QString getReportIssuesFilepath();
 
