@@ -44,6 +44,6 @@ void citezinReportIssueDialog::confirmSubmit()
 
      for (Issue * productIssue:reportissue)
      {
-         out<<productIssue->getIssue()<<","<<Qt::endl;
+         out<<productIssue->getIssue()<<",";//<<Qt::endl;
      }
 }
