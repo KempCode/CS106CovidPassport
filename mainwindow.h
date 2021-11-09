@@ -20,6 +20,7 @@ public:
     ~MainWindow();
     void handleNewCitezin();
     void saveCitezins();
+    void loadCitezins();
 
 private:
     Ui::MainWindow *ui;

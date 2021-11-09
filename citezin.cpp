@@ -26,7 +26,7 @@ QString phoneNumber, QString email, QString streetAddress, QString postcode,
 //Setter
 void Citezin::setVaccineDetails(QString vaccineName, QString batchNumber1, QString batchNumber2,
 QString batchNumber3, int numberOfDoses, QString timeOfFirstVaccine, QString timeOfSecondVaccine,
-                       bool fullyVaccinated, QString covidVaccineNumber, QString timeOfBooster){
+                       QString fullyVaccinated, QString covidVaccineNumber, QString timeOfBooster){
     this->vaccineName = vaccineName;
     this->batchNumber1 = batchNumber1;
     this->batchNumber2 = batchNumber2;
@@ -131,7 +131,7 @@ QString Citezin::getTimeOfSecondVaccine(){
 QString Citezin::getTimeOfBooster(){
     return timeOfBooster;
 }
-bool Citezin::getFullyVaccinated(){
+QString Citezin::getFullyVaccinated(){
     return fullyVaccinated;
 }
 
@@ -164,4 +164,8 @@ QString Citezin::getTestResultFilePath(){
 }
 QString Citezin::getReportIssuesFilepath(){
     return reportIssuesFilepath;
+}
+
+QString Citezin::getStrainOfVirus(){
+    return strainOfVirus;
 }

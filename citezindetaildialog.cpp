@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QVector>
+#include <QDebug>
 
 
 citezinDetailDialog::citezinDetailDialog(Citezin*& newCitezin, QWidget *parent) :
@@ -139,13 +140,15 @@ Citezin* citezinDetailDialog::getVaccineDetails(Citezin* c1){
         //Add time to date
         QTime time = ui->dateOfFirstVaccine->time();
         QString timeText = time.toString("hh:mm:ss");
-        QString vaccineDateTime = "Date: " + dateOfFirstVacText + ", Time: " + timeText;
+        QString vaccineDateTime = "Date: " + dateOfFirstVacText + " Time: " + timeText;
         //Set date to new string
         dateOfFirstVacText = vaccineDateTime;
         QString batchNo1 = ui->batchNumber1->text();
 
+
+
         c1->setVaccineDetails(vaccineName, batchNo1, "", "", 1, dateOfFirstVacText,
-                              "", false, vaccineNumber, "");
+                              "", "Not Fully Vaccinated", vaccineNumber, "");
 
     }else if( localCitezinVaccineNumber == 2){
         //Vaccine details
@@ -158,7 +161,7 @@ Citezin* citezinDetailDialog::getVaccineDetails(Citezin* c1){
         //Time of first batch
         QTime time = ui->dateOfFirstVaccine->time();
         QString timeText = time.toString("hh:mm:ss");
-        QString vaccineDateTime = "Date: " + dateOfFirstVacText + ", Time: " + timeText;
+        QString vaccineDateTime = "Date: " + dateOfFirstVacText + " Time: " + timeText;
         //Set date to new string
         dateOfFirstVacText = vaccineDateTime;
 
@@ -171,15 +174,18 @@ Citezin* citezinDetailDialog::getVaccineDetails(Citezin* c1){
         //Time of second batch
         QTime secondTime = ui->dateOfSecondVaccine->time();
         QString secondTimeText = secondTime.toString("hh:mm:ss");
-        QString secondVaccineDateTime = "Date: " + dateOfSecVacText + ", Time: " + secondTimeText;
+        QString secondVaccineDateTime = "Date: " + dateOfSecVacText + " Time: " + secondTimeText;
         //Set date to new string
         dateOfSecVacText = secondVaccineDateTime;
 
         //Batch Number 2
         QString batchNo2 = ui->batchNumber2->text();
 
+
+
+
         c1->setVaccineDetails(vaccineName, batchNo1, batchNo2, "", 2, dateOfFirstVacText,
-                              dateOfSecVacText, false, vaccineNumber, "");
+                              dateOfSecVacText, "Fully Vaccinated", vaccineNumber, "");
 
     }else if( localCitezinVaccineNumber == 3){
         //Vaccine details
@@ -189,7 +195,16 @@ Citezin* citezinDetailDialog::getVaccineDetails(Citezin* c1){
         //Vaccine details first batch
         QDate dateOfVac1 = ui->dateOfFirstVaccine->date();
         QString dateOfFirstVacText = dateOfVac1.toString("dd:MM:yyyy");
+
+        //Add time to date
+        QTime time = ui->dateOfFirstVaccine->time();
+        QString timeText = time.toString("hh:mm:ss");
+        QString vaccineDateTime = "Date: " + dateOfFirstVacText + " Time: " + timeText;
+        //Set date to new string
+        dateOfFirstVacText = vaccineDateTime;
         QString batchNo1 = ui->batchNumber1->text();
+
+
 
         //Vaccine details second batch
         QDate dateOfVac2 = ui->dateOfSecondVaccine->date();
@@ -197,7 +212,7 @@ Citezin* citezinDetailDialog::getVaccineDetails(Citezin* c1){
         //Time of second batch
         QTime secondTime = ui->dateOfSecondVaccine->time();
         QString secondTimeText = secondTime.toString("hh:mm:ss");
-        QString secondVaccineDateTime = "Date: " + dateOfSecVacText + ", Time: " + secondTimeText;
+        QString secondVaccineDateTime = "Date: " + dateOfSecVacText + " Time: " + secondTimeText;
         //Set date to new string
         dateOfSecVacText = secondVaccineDateTime;
         //BatchNumber2
@@ -210,22 +225,23 @@ Citezin* citezinDetailDialog::getVaccineDetails(Citezin* c1){
         //Time of third batch
         QTime thirdTime = ui->dateOfThirdVaccine->time();
         QString thirdTimeText = thirdTime.toString("hh:mm:ss");
-        QString thirdVaccineDateTime = "Date: " + dateOfThirdVacText + ", Time: " + thirdTimeText;
+        QString thirdVaccineDateTime = "Date: " + dateOfThirdVacText + " Time: " + thirdTimeText;
         //Set date to new string
         dateOfThirdVacText = thirdVaccineDateTime;
-        QMessageBox::information(this, "test", dateOfThirdVacText);
+
 
         //Batch Number 3
         QString batchNo3 = ui->batchNumber3->text();
 
-
         c1->setVaccineDetails(vaccineName, batchNo1, batchNo2, batchNo3, 3, dateOfFirstVacText,
-                              dateOfSecVacText, true, vaccineNumber, dateOfThirdVacText);
+                              dateOfSecVacText, "Fully Vaccinated", vaccineNumber, dateOfThirdVacText);
 
     }else{
         //it is == 0, citezin is unvaccinated.
         c1->setVaccineDetails("", "", "", "", 0, "",
-                              "", false, "", "");
+                              "", "Not Fully Vaccinated", "", "");
+
+
     }
     return c1;
 }
@@ -311,7 +327,7 @@ Citezin* citezinDetailDialog::getTestDetails(Citezin* c1){
         //Test Time
         QTime testTime = ui->covidTestDate->time();
         QString testTimeText = testTime.toString("hh:mm:ss");
-        QString testDateTimeText = "Date: " + testDateText + ", Time: " + testTimeText;
+        QString testDateTimeText = "Date: " + testDateText + " Time: " + testTimeText;
         testDateText = testDateTimeText;
 
         //Set virus to empty string.
@@ -326,7 +342,7 @@ Citezin* citezinDetailDialog::getTestDetails(Citezin* c1){
         //Test Time
         QTime testTime = ui->covidTestDate->time();
         QString testTimeText = testTime.toString("hh:mm:ss");
-        QString testDateTimeText = "Date: " + testDateText + ", Time: " + testTimeText;
+        QString testDateTimeText = "Date: " + testDateText + " Time: " + testTimeText;
         testDateText = testDateTimeText;
 
         QString strainOfVir = ui->strainOfVirus->text();

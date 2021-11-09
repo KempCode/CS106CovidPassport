@@ -40,7 +40,7 @@ private:
     QString vaccineImageFilepath;
     QString covidTestImageFilepath;
     QString testResult = "Untested";
-    int localCitezinVaccineNumber = 0;
+    int localCitezinVaccineNumber;
 };
 
 #endif // CITEZINDETAILDIALOG_H

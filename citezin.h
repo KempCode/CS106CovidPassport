@@ -27,7 +27,7 @@ private:
     int numberOfDoses;
     QString timeOfFirstVaccine;
     QString timeOfSecondVaccine;
-    bool fullyVaccinated;
+    QString fullyVaccinated;
     QString covidVaccineNumber;
     QString timeOfBooster;
     QString covidTestDate;
@@ -51,7 +51,7 @@ public:
 
     void setVaccineDetails(QString vaccineName, QString batchNumber1, QString batchNumber2,
     QString batchNumber3, int numberOfDoses, QString timeOfFirstVaccine, QString timeOfSecondVaccine,
-    bool fullyVaccinated, QString covidVaccineNumber, QString timeOfBooster);
+    QString fullyVaccinated, QString covidVaccineNumber, QString timeOfBooster);
 
     void setTestDetails(QString covidTestDate, QString covidTestResult, QString strainOfVirus);
 
@@ -79,12 +79,13 @@ public:
     QString getBatchNumber1();
     QString getBatchNumber2();
     QString getBatchNumber3();
+    QString getStrainOfVirus();
 
     int getNumberOfDoses();
     QString getTimeOfFirstVaccine();
     QString getTimeOfSecondVaccine();
     QString getTimeOfBooster();
-    bool getFullyVaccinated();
+    QString getFullyVaccinated();
 
     QString getCovidVaccineNumber();
     QString getCovidTestDate();
