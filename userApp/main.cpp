@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 
     if (Login.exec()!=QDialog::Accepted)
     {
+
         msgbx.setText("Wrong credentials. The program will stop.");
         msgbx.exec();
         a.quit();

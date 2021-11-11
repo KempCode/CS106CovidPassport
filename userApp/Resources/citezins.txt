@@ -1,1 +1,3 @@
-555-555-555, Michael, Andrew, Kemp, Michael Andrew Kemp, password123, 01:01:2000, testphone, testEThnicity, European, Male, 123 Street, 7910, testEmail, TestClinicName, TestClinicAddress, Pfizer, Batchno1, , , 1, Date: 01:01:2000 Time: 00:00:00, , , Not Fully Vaccinated, 001, Date: 01:01:2000 Time: 00:00:00, true, , , , , , , Delta
+555-555-555,  Michael,  Andrew,  Kemp,  Michael  Andrew  Kemp, password123,  01:01:2000,  testphone,  testEThnicity,  European,  Male,  123 Street,  7910,  testEmail,  TestClinicName,  TestClinicAddress,  Pfizer,  Batchno1,  ,  , 1,  Date: 01:01:2000 Time: 00:00:00,  ,  ,  Not Fully Vaccinated,  001,  Date: 01:01:2000 Time: 00:00:00,  true,  ,  ,  ,  ,  , ,  Delta
+2, 2, 2, 2, 2 2 2, password123, 01:01:2000, 2, 2, 2, 2, 2, 2, 2, 2, 2, , , , , 0, , , , Not Fully Vaccinated, , , Untested, , , , , , , 
+3, 3, 3, 3, 3 3 3, password123, 01:01:2000, 33, 3, 3, 3, 3, 3, 3, 3, 3, , , , , 0, , , , Not Fully Vaccinated, , , Untested, , , , , , , 

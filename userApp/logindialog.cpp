@@ -25,6 +25,7 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::on_pushButton_clicked()
 {
+    bool flag = false;
     UserWindow W;
     QString username = ui->Username->text();
     QString password = ui->Password->text();
@@ -47,7 +48,6 @@ void LoginDialog::on_pushButton_clicked()
             QString line = in.readLine();
             QStringList currentCitezin = line.split(",");
 
-
             //NHI
             QString citNHI = currentCitezin.at(0);
             //Password
@@ -57,21 +57,20 @@ void LoginDialog::on_pushButton_clicked()
             QString citPassTrimmed = citPass;
             citPassTrimmed = citPassTrimmed.trimmed();
 
+
             //Check if inputted NHI and Password  == to saved file.
             if (username == citNHI && password == citPassTrimmed)
             {
                 this->hide();
-                QMessageBox::information(this,"Login","Correct Username and Password");
                 this->setResult(QDialog::Accepted);
-
+                flag = true;
+                break;
             }
             else
             {
-                QMessageBox::warning(this,"Login", "Incorrect username or password");
                 this->setResult(QDialog::Rejected);
 
             }
-
         }
         in.flush();
         inputFile.close();
@@ -81,5 +80,11 @@ void LoginDialog::on_pushButton_clicked()
     }
 
 
+    QMessageBox msgbx;
+    if (flag == false)
+    {
+        msgbx.setText("Wrong credentials. Try again!");
+        msgbx.exec();
+    }
 }
 
