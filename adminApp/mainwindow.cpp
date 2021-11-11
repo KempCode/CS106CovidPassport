@@ -51,7 +51,7 @@ void MainWindow::handleNewCitezin()
 void MainWindow::saveCitezins(){
     //Save all users in Qlist widget / Data model vector into file
 
-    QFile outputFile("citezins.txt");
+    QFile outputFile(":/res/Resources/citezins.txt");
     outputFile.open(QIODevice::WriteOnly /*| QIODevice::Append*/ | QIODevice::Text);
     QTextStream out(&outputFile);
 
@@ -145,7 +145,7 @@ void MainWindow::saveCitezins(){
 
 void MainWindow::loadCitezins(){
     //Load all of the citezins in on click of the File > Load Button.
-    QString fileName("./citezins.txt");
+    QString fileName(":/res/Resources/citezins.txt");
 
 
     if(QFileInfo::exists(fileName)){

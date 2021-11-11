@@ -1,7 +1,6 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 #include <QMessageBox>
-#include "ui_mainwindow.h"
 #include "userwindow.h"
 
 LoginDialog::LoginDialog(QWidget *parent) :
@@ -27,9 +26,6 @@ void LoginDialog::on_pushButton_clicked()
         this->hide();
         QMessageBox::information(this,"Login","Correct Username and Password");
         this->setResult(QDialog::Accepted);
-
-
-
 
     }
     else

@@ -6,7 +6,6 @@
 namespace Ui {
 class UserWindow;
 }
-
 class UserWindow : public QMainWindow
 {
     Q_OBJECT
