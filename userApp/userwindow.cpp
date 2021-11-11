@@ -9,11 +9,13 @@ UserWindow::UserWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::UserWindow)
 {
+
     ui->setupUi(this);
     connect (ui->actionReport_Issue, &QAction::triggered,this,&UserWindow::on_actionReport_Issue_triggered);
     connect (ui->actionView_Certificate, &QAction::triggered,this,&UserWindow::on_actionView_Certificate_triggered);
     connect (ui->actionLogout, &QAction::triggered,this,&UserWindow::on_actionLogout_triggered);
- ;
+
+    //Load in the user with a function.
 
 }
 
