@@ -26,9 +26,53 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->actionLoadUsers, &QAction::triggered,
             this, &MainWindow::loadCitezins);
+    connect(ui->lstCitezins, &QListWidget::itemClicked,this,&MainWindow::userClicked);
+
+
 
 }
 
+void MainWindow::userClicked()
+{
+    int index= ui->lstCitezins->currentRow();
+
+    if(index!= -1)
+    {
+         Citezin *newCit = citezinList.at(index);
+
+
+         ui->VI_1->setText(newCit->getClinicName());
+         ui->VI_2->setText(newCit->getClinicAddress());
+         ui->VI_3->setText(newCit->getVaccineName());
+         ui->VI_4->setText(newCit->getTimeOfFirstVaccine());//date of first vaccine
+         ui->VI_5->setText(newCit->getBatchNumber1());
+         ui->VI_6->setText(newCit->getTimeOfSecondVaccine());
+         ui->VI_7->setText(newCit->getBatchNumber2());
+         ui->VI_8->setText(newCit->getTimeOfBooster());
+         ui->VI_9->setText(newCit->getBatchNumber3());
+
+         ui->TR_1->setText(newCit->getCovidTestDate());
+         ui->TR_2->setText(newCit->getCovidTestResult());
+         ui->TR_3->setText(newCit->getStrainOfVirus());
+
+         ui->PI_1->setText(newCit->getFirstName());
+         ui->PI_2->setText(newCit->getMiddleName());
+         ui->PI_3->setText(newCit->getLastName());
+         ui->PI_4->setText(newCit->getDOB());
+         ui->PI_5->setText(newCit->getEthnicity());
+         ui->PI_6->setText(newCit->getGender());
+         ui->PI_7->setText(newCit->getNHINumber());
+         ui->PI_8->setText(newCit->getEmail());
+         ui->PI_9->setText(newCit->getStreetAddress());
+         ui->PI_10->setText(newCit->getPostcode());
+         ui->PI_11->setText(newCit->getPhoneNumber());
+         ui->PI_12->setText(newCit->getNationality());
+         ui->PI_13->setText(newCit->getPhoneNumber());
+
+
+    }
+
+}
 
 void MainWindow::handleNewCitezin()
 {
@@ -216,6 +260,8 @@ MainWindow::~MainWindow()
         delete citezinList.at(i);
         citezinList[i] = nullptr;
     }
+    citezinList.clear();
     delete ui;
+
 }
 

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 #include "citezin.h"
 #include "citezindetaildialog.h"
+#include <QVector>
+#include "citezin.h"
 
 
 
@@ -21,7 +23,7 @@ public:
     void handleNewCitezin();
     void saveCitezins();
     void loadCitezins();
-
+    void userClicked();
 private:
     Ui::MainWindow *ui;
 
