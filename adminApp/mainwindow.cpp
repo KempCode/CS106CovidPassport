@@ -27,10 +27,107 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionLoadUsers, &QAction::triggered,
             this, &MainWindow::loadCitezins);
     connect(ui->lstCitezins, &QListWidget::itemClicked,this,&MainWindow::userClicked);
+    connect(ui->BSearch, &QPushButton::clicked,this, &MainWindow::searchUser);
+    connect(ui->Bremove, &QPushButton::clicked,this, &MainWindow::removeUser);
+    connect(ui->editUser, &QPushButton::clicked,this, &MainWindow::editUser);
 
 
 
 }
+void MainWindow::editUser()
+{
+    int index = ui->lstCitezins->currentRow();
+
+    if (index != -1)
+    {
+        Citezin* currentUser = citezinList.at(index);
+
+        if ( currentUser!= nullptr)
+        {
+            UpdateItemDialog updateItemDialog(currentUser, nullptr);
+            updateItemDialog.exec();
+
+            //make sure UI is updated
+            ui->lblProductName->setText(currentUser->getName());
+            ui->lblQuantity->setText(QString::number(currentUser->getQuantity()));
+
+            QPixmap pixmap(currentUser->getImageFilePath());
+            ui->lblImage->setPixmap(pixmap);
+            ui->lblImage->setScaledContents(true);
+        }//end inner if
+    }//end if
+
+
+}
+void MainWindow::removeUser()
+{
+int index = ui->lstCitezins->currentRow();
+if (index >= 0)
+{
+    //remove from vector
+    Citezin* user = citezinList.at(index);
+    delete user;
+    citezinList.removeAt(index);
+
+    delete ui->lstCitezins->currentItem();
+}
+    ui->VI_1->setText("");
+    ui->VI_2->setText("");
+    ui->VI_3->setText("");
+    ui->VI_4->setText("");//date of first vaccine
+    ui->VI_5->setText("");
+    ui->VI_6->setText("");
+    ui->VI_7->setText("");
+    ui->VI_8->setText("");
+    ui->VI_9->setText("");
+
+    ui->TR_1->setText("");
+    ui->TR_2->setText("");
+    ui->TR_3->setText("");
+
+    ui->LPI_1->setText("");
+    ui->LPI_2->setText("");
+    ui->LPI_3->setText("");
+    ui->LPI_4->setText("");
+    ui->LPI_5->setText("");
+    ui->LPI_6->setText("");
+    ui->LPI_7->setText("");
+    ui->LPI_8->setText("");
+    ui->LPI_9->setText("");
+    ui->LPI_10->setText("");
+    ui->LPI_11->setText("");
+    ui->LPI_12->setText("");
+    ui->LPI_13->setText("");
+
+}
+
+   void MainWindow::searchUser()
+   {
+       QString search=ui->LSearch->text();
+       if(search!="")
+       {
+           for(int i = 0; i <ui->lstCitezins->count();i++)
+           {
+               QListWidgetItem* citezin = ui->lstCitezins->item(i);
+               citezin->setBackground(Qt::white);
+           }
+           QList<QListWidgetItem *> list = ui->lstCitezins->findItems(search,Qt::MatchContains);
+           //for ( QListWidgetItem *item : list)
+           for (int i=0; i<list.count(); i++)
+           {
+               QListWidgetItem* item = list.at(i);
+               item->setBackground(Qt::red);
+           }
+       }
+       else
+       {
+           for(int i = 0; i < ui->lstCitezins->count(); i++)
+           {
+               QListWidgetItem* item = ui->lstCitezins->item(i);
+               item->setBackground(Qt::white);
+           }
+       }
+   }
 
 void MainWindow::userClicked()
 {
@@ -55,19 +152,19 @@ void MainWindow::userClicked()
          ui->TR_2->setText(newCit->getCovidTestResult());
          ui->TR_3->setText(newCit->getStrainOfVirus());
 
-         ui->PI_1->setText(newCit->getFirstName());
-         ui->PI_2->setText(newCit->getMiddleName());
-         ui->PI_3->setText(newCit->getLastName());
-         ui->PI_4->setText(newCit->getDOB());
-         ui->PI_5->setText(newCit->getEthnicity());
-         ui->PI_6->setText(newCit->getGender());
-         ui->PI_7->setText(newCit->getNHINumber());
-         ui->PI_8->setText(newCit->getEmail());
-         ui->PI_9->setText(newCit->getStreetAddress());
-         ui->PI_10->setText(newCit->getPostcode());
-         ui->PI_11->setText(newCit->getPhoneNumber());
-         ui->PI_12->setText(newCit->getNationality());
-         ui->PI_13->setText(newCit->getPhoneNumber());
+         ui->LPI_1->setText(newCit->getFirstName());
+         ui->LPI_2->setText(newCit->getMiddleName());
+         ui->LPI_3->setText(newCit->getLastName());
+         ui->LPI_4->setText(newCit->getDOB());
+         ui->LPI_5->setText(newCit->getEthnicity());
+         ui->LPI_6->setText(newCit->getGender());
+         ui->LPI_7->setText(newCit->getNHINumber());
+         ui->LPI_8->setText(newCit->getEmail());
+         ui->LPI_9->setText(newCit->getStreetAddress());
+         ui->LPI_10->setText(newCit->getPostcode());
+         ui->LPI_11->setText(newCit->getPhoneNumber());
+         ui->LPI_12->setText(newCit->getNationality());
+         ui->LPI_13->setText(newCit->getPhoneNumber());
 
 
     }

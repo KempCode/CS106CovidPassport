@@ -24,6 +24,9 @@ public:
     void saveCitezins();
     void loadCitezins();
     void userClicked();
+    void searchUser();
+    void removeUser();
+    void editUser();
 private:
     Ui::MainWindow *ui;
 
