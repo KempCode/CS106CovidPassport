@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "citezin.h"
+#include "modifydialog.h"
 #include <QFile>
 #include <QMessageBox>
 #include <QFileInfo>
@@ -26,10 +27,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->actionLoadUsers, &QAction::triggered,
             this, &MainWindow::loadCitezins);
+
+    connect(ui->actionModify_User, &QAction::triggered,
+            this, &MainWindow::editUser);
+
     connect(ui->lstCitezins, &QListWidget::itemClicked,this,&MainWindow::userClicked);
     connect(ui->BSearch, &QPushButton::clicked,this, &MainWindow::searchUser);
     connect(ui->Bremove, &QPushButton::clicked,this, &MainWindow::removeUser);
-    connect(ui->editUser, &QPushButton::clicked,this, &MainWindow::editUser);
 
 
 
@@ -44,16 +48,16 @@ void MainWindow::editUser()
 
         if ( currentUser!= nullptr)
         {
-            UpdateItemDialog updateItemDialog(currentUser, nullptr);
-            updateItemDialog.exec();
+           ModifyDialog updateItemDialog(currentUser, nullptr);
+           updateItemDialog.exec();
 
-            //make sure UI is updated
-            ui->lblProductName->setText(currentUser->getName());
-            ui->lblQuantity->setText(QString::number(currentUser->getQuantity()));
+//            //make sure UI is updated
+//            ui->lblProductName->setText(currentUser->getName());
+//            ui->lblQuantity->setText(QString::number(currentUser->getQuantity()));
 
-            QPixmap pixmap(currentUser->getImageFilePath());
-            ui->lblImage->setPixmap(pixmap);
-            ui->lblImage->setScaledContents(true);
+//            QPixmap pixmap(currentUser->getImageFilePath());
+//            ui->lblImage->setPixmap(pixmap);
+//            ui->lblImage->setScaledContents(true);
         }//end inner if
     }//end if
 

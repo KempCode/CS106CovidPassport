@@ -11,37 +11,23 @@ CONFIG += c++11
 SOURCES += \
     citezin.cpp \
     citezindetaildialog.cpp \
-    citezindocdialog.cpp \
-    citezingeneralreport.cpp \
-    citezinreportissuedialog.cpp \
-    covidpassportdialog.cpp \
-    issue.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    userwindow.cpp
+    modifydialog.cpp
 
 HEADERS += \
     citezin.h \
     citezindetaildialog.h \
-    citezindocdialog.h \
-    citezingeneralreport.h \
-    citezinreportissuedialog.h \
-    covidpassportdialog.h \
-    issue.h \
     logindialog.h \
     mainwindow.h \
-    userwindow.h
+    modifydialog.h
 
 FORMS += \
     citezindetaildialog.ui \
-    citezindocdialog.ui \
-    citezingeneralreport.ui \
-    citezinreportissuedialog.ui \
-    covidpassportdialog.ui \
     logindialog.ui \
     mainwindow.ui \
-    userwindow.ui
+    modifydialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

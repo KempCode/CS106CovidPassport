@@ -16,6 +16,7 @@ citezinDetailDialog::citezinDetailDialog(Citezin*& newCitezin, QWidget *parent) 
     ui->setupUi(this);
     //Main Constructor for adding Citezin Details.
 
+
     //Initialise new Citezin with null pointer to add data using this item
     this->newCitezin = &newCitezin;
 
