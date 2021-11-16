@@ -26,7 +26,7 @@ LoginDialog::~LoginDialog()
 void LoginDialog::on_pushButton_clicked()
 {
     bool flag = false;
-    UserWindow W;
+
     QString username = ui->Username->text();
     QString password = ui->Password->text();
 
@@ -63,6 +63,7 @@ void LoginDialog::on_pushButton_clicked()
             {
                 this->hide();
                 this->setResult(QDialog::Accepted);
+                localNHI = citNHI;
                 flag = true;
                 break;
             }

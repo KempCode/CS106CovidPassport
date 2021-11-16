@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>592</width>
-    <height>600</height>
+    <width>1077</width>
+    <height>601</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>10</y>
       <width>531</width>
       <height>550</height>
@@ -232,7 +232,7 @@ color: #000000;</string>
        <string>Covid Test Result:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_21">
+     <widget class="QLabel" name="VI_1">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -248,7 +248,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_22">
+     <widget class="QLabel" name="VI_2">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -264,7 +264,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_23">
+     <widget class="QLabel" name="VI_3">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -280,7 +280,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_24">
+     <widget class="QLabel" name="VI_4">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -296,7 +296,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_25">
+     <widget class="QLabel" name="VI_5">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -312,7 +312,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_26">
+     <widget class="QLabel" name="VI_6">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -328,7 +328,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_27">
+     <widget class="QLabel" name="VI_7">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -344,7 +344,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_28">
+     <widget class="QLabel" name="VI_8">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -360,7 +360,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_29">
+     <widget class="QLabel" name="VI_9">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -376,7 +376,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_30">
+     <widget class="QLabel" name="TR_1">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -392,7 +392,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_31">
+     <widget class="QLabel" name="TR_2">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -421,7 +421,7 @@ color: #000000;</string>
        <string>Strain Of Virus</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_50">
+     <widget class="QLabel" name="TR_3">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -450,7 +450,7 @@ color: #000000;</string>
        <string>Result:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_52">
+     <widget class="QLabel" name="TR_4">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -569,7 +569,7 @@ color: #000000;</string>
        <string>Gender</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_32">
+     <widget class="QLabel" name="LPI_1">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -585,7 +585,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_33">
+     <widget class="QLabel" name="LPI_2">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -601,7 +601,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_34">
+     <widget class="QLabel" name="LPI_3">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -617,7 +617,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_35">
+     <widget class="QLabel" name="LPI_4">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -633,7 +633,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_36">
+     <widget class="QLabel" name="LPI_5">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -727,7 +727,7 @@ color: #000000;</string>
        <string>Post Code</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_43">
+     <widget class="QLabel" name="LPI_6">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -743,7 +743,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_44">
+     <widget class="QLabel" name="LPI_7">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -759,7 +759,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_45">
+     <widget class="QLabel" name="LPI_8">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -775,7 +775,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_46">
+     <widget class="QLabel" name="LPI_9">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -791,7 +791,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_47">
+     <widget class="QLabel" name="LPI_10">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -807,7 +807,7 @@ color: #000000;</string>
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_48">
+     <widget class="QLabel" name="LPI_11">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -841,14 +841,321 @@ color: #000000;</string>
      </property>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>10</y>
+      <width>511</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(247, 225, 24);</string>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>471</width>
+       <height>501</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(244, 244, 244);
+</string>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>175</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(209, 209, 209);
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>0</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-family: Nunito;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 38px;
+
+color: #000000;</string>
+      </property>
+      <property name="text">
+       <string>New Zealand</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Stamp">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>60</y>
+        <width>55</width>
+        <height>55</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(217, 173, 17);</string>
+      </property>
+      <property name="text">
+       <string>Stamp</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>130</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+</string>
+      </property>
+      <property name="text">
+       <string>Travel Vaccination Certification</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>170</y>
+        <width>118</width>
+        <height>3</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>230</y>
+        <width>160</width>
+        <height>148</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <property name="verticalSpacing">
+        <number>22</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_31">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Card Serial NHI</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_32">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Fully Vaccinated: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_33">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Batch Number1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_34">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Batch Number2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="CVI_1"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="CVI_3"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="CVI_4"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="CVI_2"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>200</y>
+        <width>271</width>
+        <height>222</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="verticalSpacing">
+        <number>24</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_24">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Last Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_25">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>First Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="CPI_2"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_26">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Date Of Birth</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="CPI_3"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_28">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Street Address:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_29">
+         <property name="styleSheet">
+          <string notr="true">font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+</string>
+         </property>
+         <property name="text">
+          <string>Date Of Expiry</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="CPI_1"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="CPI_5"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="CPI_4"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>592</width>
-     <height>20</height>
+     <width>1077</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -856,9 +1163,7 @@ color: #000000;</string>
      <string>File</string>
     </property>
     <addaction name="actionReport_Issue"/>
-    <addaction name="actionView_Certificate"/>
     <addaction name="actionView_Documents"/>
-    <addaction name="actionLogout"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>

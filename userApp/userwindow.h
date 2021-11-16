@@ -2,6 +2,7 @@
 #define USERWINDOW_H
 
 #include <QMainWindow>
+#include <citezin.h>
 
 namespace Ui {
 class UserWindow;
@@ -11,18 +12,23 @@ class UserWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit UserWindow(QWidget *parent = nullptr);
+    explicit UserWindow(QString nhi, QWidget *parent = nullptr);
     ~UserWindow();
 
 private slots:
     void on_actionReport_Issue_triggered();
 
-    void on_actionView_Certificate_triggered();
+   //void on_actionView_Certificate_triggered();
 
-    void on_actionLogout_triggered();
+    //void on_actionLogout_triggered();
+
+
+   // void on_Bview_clicked();
 
 private:
     Ui::UserWindow *ui;
+    QString nhi;
+
 };
 
 #endif // USERWINDOW_H

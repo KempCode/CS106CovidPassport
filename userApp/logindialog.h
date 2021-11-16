@@ -14,9 +14,11 @@ class LoginDialog : public QDialog
 public:
     explicit LoginDialog(QWidget *parent = nullptr);
     ~LoginDialog();
+     QString localNHI;
 
 private slots:
     void on_pushButton_clicked();
+
 
 private:
     Ui::LoginDialog *ui;

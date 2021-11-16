@@ -1,0 +1,14 @@
+debug/citezin.o
+debug/citezindocdialog.o
+debug/citezinreportissuedialog.o
+debug/covidpassportdialog.o
+debug/issue.o
+debug/logindialog.o
+debug/main.o
+debug/userwindow.o
+debug/qrc_Resources.o
+debug/moc_citezindocdialog.o
+debug/moc_citezinreportissuedialog.o
+debug/moc_covidpassportdialog.o
+debug/moc_logindialog.o
+debug/moc_userwindow.o

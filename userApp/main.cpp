@@ -2,17 +2,16 @@
 #include "logindialog.h"
 #include <QApplication>
 #include <QMessageBox>
+#include "logindialog.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    UserWindow w;
-    w.hide();
-
-
     QMessageBox msgbx;
     LoginDialog Login;
     Login.setModal(true);
+
+
 
     if (Login.exec()!=QDialog::Accepted)
     {
@@ -25,6 +24,7 @@ int main(int argc, char *argv[])
     {
         msgbx.setText("Correct, welcome.");
         msgbx.exec();
+        UserWindow w(Login.localNHI, nullptr);
         w.show();
         a.exec();
     }

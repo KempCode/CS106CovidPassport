@@ -13,6 +13,7 @@ class covidPassportDialog : public QDialog
 
 public:
     explicit covidPassportDialog(QWidget *parent = nullptr);
+
     ~covidPassportDialog();
 
 private:
