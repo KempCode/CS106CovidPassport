@@ -145,11 +145,11 @@ void MainWindow::userClicked()
          ui->VI_1->setText(newCit->getClinicName());
          ui->VI_2->setText(newCit->getClinicAddress());
          ui->VI_3->setText(newCit->getVaccineName());
-         ui->VI_4->setText(newCit->getTimeOfFirstVaccine());//date of first vaccine
+         ui->VI_4->setText(newCit->getDateOfFirstVaccine());//date of first vaccine
          ui->VI_5->setText(newCit->getBatchNumber1());
-         ui->VI_6->setText(newCit->getTimeOfSecondVaccine());
+         ui->VI_6->setText(newCit->getDateOfSecondVaccine());
          ui->VI_7->setText(newCit->getBatchNumber2());
-         ui->VI_8->setText(newCit->getTimeOfBooster());
+         ui->VI_8->setText(newCit->getDateOfBooster());
          ui->VI_9->setText(newCit->getBatchNumber3());
 
          ui->TR_1->setText(newCit->getCovidTestDate());
@@ -248,11 +248,11 @@ void MainWindow::saveCitezins(){
         out << ", ";
         out << citezinList.at(i)->getNumberOfDoses();
         out << ", ";
-        out << citezinList.at(i)->getTimeOfFirstVaccine();
+        out << citezinList.at(i)->getDateOfFirstVaccine();
         out << ", ";
-        out << citezinList.at(i)->getTimeOfSecondVaccine();
+        out << citezinList.at(i)->getDateOfSecondVaccine();
         out << ", ";
-        out << citezinList.at(i)->getTimeOfBooster();
+        out << citezinList.at(i)->getDateOfBooster();
         out << ", ";
         out << citezinList.at(i)->getFullyVaccinated();
         out << ", ";
@@ -278,8 +278,14 @@ void MainWindow::saveCitezins(){
         out << ", ";
         //Added virus strain
         out << citezinList.at(i)->getStrainOfVirus();
+        out << ", ";
+        //add vaccine times in.
+        out << citezinList.at(i)->getTimeOfFirstVaccine(); //35
+        out << ", ";
+        out << citezinList.at(i)->getTimeOfSecondVaccine();
+        out << ", ";
+        out << citezinList.at(i)->getTimeOfBooster();
         out << "\n";
-
     }
 
     //Close File Handles.
@@ -330,9 +336,9 @@ void MainWindow::loadCitezins(){
 
 
             newCit->setVaccineDetails(currentCitezin.at(16), currentCitezin.at(17), currentCitezin.at(18),
-                                      currentCitezin.at(19), currentCitezin.at(20).toInt(), currentCitezin.at(21),
-                                      currentCitezin.at(22), currentCitezin.at(24), currentCitezin.at(25),
-                                      currentCitezin.at(23));
+                                      currentCitezin.at(19), currentCitezin.at(20).toInt(), currentCitezin.at(35),
+                                      currentCitezin.at(36), currentCitezin.at(24), currentCitezin.at(25),
+                                      currentCitezin.at(37), currentCitezin.at(21), currentCitezin.at(22), currentCitezin.at(23));
 
             newCit->setTestDetails(currentCitezin.at(26), currentCitezin.at(27), currentCitezin.at(34));
 

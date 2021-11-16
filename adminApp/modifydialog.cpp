@@ -41,8 +41,15 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     ui->userDetailsImage->setScaledContents(true);
 
     //Set vaccination Details.
+
+
+
+
+
     //fill in all details/
     //then let user click how many, wipe those not needed. fill in needed. / allow update.
+
+
 
 
 
