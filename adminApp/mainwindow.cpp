@@ -51,22 +51,48 @@ void MainWindow::editUser()
            ModifyDialog updateItemDialog(currentUser, nullptr);
            updateItemDialog.exec();
 
-//            //make sure UI is updated
-//            ui->lblProductName->setText(currentUser->getName());
-//            ui->lblQuantity->setText(QString::number(currentUser->getQuantity()));
+
+           //make sure UI is updated
+           ui->VI_1->setText(currentUser->getClinicName());
+           ui->VI_2->setText(currentUser->getClinicAddress());
+           ui->VI_3->setText(currentUser->getVaccineName());
+           ui->VI_4->setText(currentUser->getDateOfFirstVaccine());//date of first vaccine
+           ui->VI_5->setText(currentUser->getBatchNumber1());
+           ui->VI_6->setText(currentUser->getDateOfSecondVaccine());
+           ui->VI_7->setText(currentUser->getBatchNumber2());
+           ui->VI_8->setText(currentUser->getDateOfBooster());
+           ui->VI_9->setText(currentUser->getBatchNumber3());
+
+           ui->TR_1->setText(currentUser->getCovidTestDate());
+           ui->TR_2->setText(currentUser->getCovidTestResult());
+           ui->TR_3->setText(currentUser->getStrainOfVirus());
+
+           ui->LPI_1->setText(currentUser->getFirstName());
+           ui->LPI_2->setText(currentUser->getMiddleName());
+           ui->LPI_3->setText(currentUser->getLastName());
+           ui->LPI_4->setText(currentUser->getDOB());
+           ui->LPI_5->setText(currentUser->getEthnicity());
+           ui->LPI_6->setText(currentUser->getGender());
+           ui->LPI_7->setText(currentUser->getNHINumber());
+           ui->LPI_8->setText(currentUser->getEmail());
+           ui->LPI_9->setText(currentUser->getStreetAddress());
+           ui->LPI_10->setText(currentUser->getPostcode());
+           ui->LPI_11->setText(currentUser->getPhoneNumber());
+           ui->LPI_12->setText(currentUser->getNationality());
+           ui->LPI_13->setText(currentUser->getPhoneNumber());
 
 //            QPixmap pixmap(currentUser->getImageFilePath());
 //            ui->lblImage->setPixmap(pixmap);
 //            ui->lblImage->setScaledContents(true);
-        }//end inner if
-    }//end if
+        }
+    }
 
 
 }
 void MainWindow::removeUser()
 {
-int index = ui->lstCitezins->currentRow();
-if (index >= 0)
+    int index = ui->lstCitezins->currentRow();
+    if (index >= 0)
 {
     //remove from vector
     Citezin* user = citezinList.at(index);
@@ -169,8 +195,6 @@ void MainWindow::userClicked()
          ui->LPI_11->setText(newCit->getPhoneNumber());
          ui->LPI_12->setText(newCit->getNationality());
          ui->LPI_13->setText(newCit->getPhoneNumber());
-
-
     }
 
 }

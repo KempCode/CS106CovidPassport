@@ -27,16 +27,10 @@ void LoginDialog::on_pushButton_clicked()
         this->hide();
         QMessageBox::information(this,"Login","Correct Username and Password");
         this->setResult(QDialog::Accepted);
-
-
-
-
     }
     else
     {
         QMessageBox::warning(this,"Login", "Incorrect username or password");
         this->setResult(QDialog::Rejected);
-
     }
 }
-

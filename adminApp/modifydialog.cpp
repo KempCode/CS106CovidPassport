@@ -15,6 +15,20 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     ui(new Ui::ModifyDialog)
 {
     ui->setupUi(this);
+    this->newCitezin = newCitezin;
+
+    //Manually doing signals and slots.
+
+
+    //Initialise QDirectory
+    //All images you upload have to go into ./images.
+    QDir pathDir("./images");
+    if(!pathDir.exists()){
+        //If path doesn't exist already, specify it in constructor.
+        QDir().mkdir("./images");
+    }
+
+
     //Load in all user Details.
     //Load in all selected citezins details .
     ui->firstNameEdit->setText(newCitezin->getFirstName());
@@ -37,6 +51,7 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
 
     //Load User Details Document.
     QPixmap pixmap(newCitezin->getUserDetailsFilePath().trimmed());
+    imageFilePath = newCitezin->getUserDetailsFilePath().trimmed();
     ui->userDetailsImage->setPixmap(pixmap);
     ui->userDetailsImage->setScaledContents(true);
 
@@ -46,7 +61,6 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     ui->vaccineNumber->setText(newCitezin->getCovidVaccineNumber());
 
     //Fill in vaccine 1 2 and 3 details.
-    qDebug() << newCitezin->getDateOfFirstVaccine();
     QDate vacDate1 = QDate::fromString(newCitezin->getDateOfFirstVaccine().trimmed(),"dd:MM:yyyy");
     ui->dateOfFirstVaccine->setDate(vacDate1);
     ui->batchNumber1->setText(newCitezin->getBatchNumber1());
@@ -60,8 +74,27 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     ui->batchNumber3->setText(newCitezin->getBatchNumber3());
 
 
-
     //Lockout all typing. Unlock elements after using same logic as detail dialog.
+
+    //load vaccine image in.
+    QPixmap pixmap2(newCitezin->getUserDocumentFilePath().trimmed());
+    vaccineImageFilepath = newCitezin->getUserDocumentFilePath().trimmed();
+
+    ui->vaccineCertImage->setPixmap(pixmap2);
+    ui->vaccineCertImage->setScaledContents(true);
+
+    //Load in all the details for the test.
+    QDate oldTestDate = QDate::fromString(newCitezin->getCovidTestDate().trimmed(),"dd:MM:yyyy");
+    ui->covidTestDate->setDate(oldTestDate);
+    ui->strainOfVirus->setText(newCitezin->getStrainOfVirus());
+
+
+    //Load Covid test image in.
+    QPixmap pixmap3(newCitezin->getTestResultFilePath().trimmed());
+    covidTestImageFilepath = newCitezin->getTestResultFilePath().trimmed();
+    ui->testDocImage->setPixmap(pixmap3);
+    ui->testDocImage->setScaledContents(true);
+
 
     //Hide items in vaccine menu. / Make not editable until valid.
     ui->vaccineNameEdit->setReadOnly(true);
@@ -73,9 +106,42 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     ui->dateOfThirdVaccine->setReadOnly(true);
     ui->batchNumber3->setReadOnly(true);
 
+
+
+    //Manually doing signals and slots.
+    connect(ui->continueButton, &QPushButton::clicked,
+            this, &ModifyDialog::modifyCitezin);
+
+    connect(ui->uploadButton, &QPushButton::clicked,
+            this, &ModifyDialog::loadCitezinDetailsImage);
+
+    connect(ui->uploadVacCertButton, &QPushButton::clicked,
+            this, &ModifyDialog::loadCitezinVaccineImage);
+
+    connect(ui->uploadTestDoc, &QPushButton::clicked,
+            this, &ModifyDialog::loadCitezinTestImage);
+
+}
+
+
+
+void ModifyDialog::modifyCitezin(){
+    //Function to handle the modification of the citezin.
     //If Admin clicks one vaccine, it will retreive details for only one etc.
 
+    //Add all of these
 
+
+    newCitezin = loadVaccineDetails(newCitezin);
+    newCitezin = loadTestDetails(newCitezin);
+    //Set file path details.
+    newCitezin->setFileDetails("",vaccineImageFilepath, "", covidTestImageFilepath);
+    this->close();
+}
+
+
+
+Citezin* ModifyDialog::loadVaccineDetails(Citezin* c1){
     if(localCitezinVaccineNumber == 1){
             //Vaccine details
             QString vaccineName = ui->vaccineNameEdit->text();
@@ -92,7 +158,7 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
             QString batchNo1 = ui->batchNumber1->text();
 
 
-            newCitezin->setVaccineDetails(vaccineName, batchNo1, "", "", 1, timeText,
+            c1->setVaccineDetails(vaccineName, batchNo1, "", "", 1, timeText,
                                   "", "Not Fully Vaccinated", vaccineNumber, "", dateOfFirstVacText, "", "");
 
         }else if( localCitezinVaccineNumber == 2){
@@ -120,7 +186,7 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
             //Batch Number 2
             QString batchNo2 = ui->batchNumber2->text();
 
-            newCitezin->setVaccineDetails(vaccineName, batchNo1, batchNo2, "", 2, timeText,
+            c1->setVaccineDetails(vaccineName, batchNo1, batchNo2, "", 2, timeText,
                                   secondTimeText, "Fully Vaccinated", vaccineNumber, "", dateOfFirstVacText, dateOfSecVacText, "");
 
         }else if( localCitezinVaccineNumber == 3){
@@ -160,26 +226,55 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
             //Batch Number 3
             QString batchNo3 = ui->batchNumber3->text();
 
-            newCitezin->setVaccineDetails(vaccineName, batchNo1, batchNo2, batchNo3, 3, timeText,
+            c1->setVaccineDetails(vaccineName, batchNo1, batchNo2, batchNo3, 3, timeText,
                                   secondTimeText, "Fully Vaccinated", vaccineNumber,
                                   thirdTimeText, dateOfFirstVacText, dateOfSecVacText, dateOfThirdVacText);
 
         }else{
             //it is == 0, citezin is unvaccinated.
-            newCitezin->setVaccineDetails("", "", "", "", 0, "",
+        QMessageBox::information(this, "Warning", "You have not selected the number of Vaccines!");
+        QMessageBox::information(this, "Warning", "Current vaccine data will be wiped!");
+            c1->setVaccineDetails("", "", "", "", 0, "",
                                   "", "Not Fully Vaccinated", "", "", "", "", "");
         }
-
-
-
-    //Load Vaccine Certificate
-    //Set Covid Test details.
-    //Load Covid Test Document.
-    //Modify item in vector.
-
-
+    return c1;
 }
 
+
+Citezin* ModifyDialog::loadTestDetails(Citezin* c1){
+    /*If user has had a test, fill get filled out info.
+     * Else use blank in public member function.
+    */
+
+    if(ui->covidPositive->isChecked() == false && ui->covidNegative->isChecked() == false){
+        //If neither positve or negative clicked for covid test, every field is set empty.
+        c1->setTestDetails("", testResult, "");
+        QMessageBox::information(this, "Warning", "You have not selected positive or negative for covid!");
+        QMessageBox::information(this, "Warning", "The Covid test will be wiped.");
+    }
+    else if(ui->covidNegative->isChecked() == true){
+        //If negative checked, strain of virus shouldn't be allowed
+        QDate testDate = ui->covidTestDate->date();
+        QString testDateText = testDate.toString("dd:MM:yyyy");
+
+
+        //Set virus to empty string.
+        QString strainOfVir = "";
+         //Set details of test in data model.
+        c1->setTestDetails(testDateText,testResult,strainOfVir);
+        }
+    else{
+        //else set to input fields.
+        QDate testDate = ui->covidTestDate->date();
+        QString testDateText = testDate.toString("dd:MM:yyyy");
+
+        QString strainOfVir = ui->strainOfVirus->text();
+         //Set details of test in data model.
+        c1->setTestDetails(testDateText,testResult,strainOfVir);
+    }
+    return c1;
+
+}
 
 
 
@@ -231,14 +326,71 @@ void ModifyDialog::on_vac3Radio_clicked()
 }
 
 
+
+void ModifyDialog::on_covidPositive_clicked()
+{
+    testResult = "true";
+}
+
+
+void ModifyDialog::on_covidNegative_clicked()
+{
+    testResult = "false";
+}
+
+
 void ModifyDialog::loadCitezinDetailsImage(){
+    QString filename;
+    filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
+                                             "Image File (*.png *jpg *jpeg)");
+    if(filename != ""){
+        int lastslash = filename.lastIndexOf("/");
+        QString shortname = filename.right(filename.size() - lastslash - 1);
+
+        QFile::copy(filename, "./images/" + shortname);
+        QPixmap pixmap("./images/" + shortname);
+        ui->userDetailsImage->setPixmap(pixmap);
+        ui->userDetailsImage->setScaledContents(true);
+        //save image filepath into data model.
+        imageFilePath = "./images/" + shortname;
+    }
 
 }
 void ModifyDialog::loadCitezinVaccineImage(){
+    //Load in the Latest vaccine document.
+    QString filename;
+    filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
+                                             "Image File (*.png *jpg *jpeg)");
+    if(filename != ""){
+        int lastslash = filename.lastIndexOf("/");
+        QString shortname = filename.right(filename.size() - lastslash - 1);
+
+        QFile::copy(filename, "./images/" + shortname);
+        QPixmap pixmap("./images/" + shortname);
+        ui->vaccineCertImage->setPixmap(pixmap);
+        ui->vaccineCertImage->setScaledContents(true);
+        //save image filepath into data model.
+        vaccineImageFilepath = "./images/" + shortname;
+    }
 
 }
 void ModifyDialog::loadCitezinTestImage(){
+    //Load image of the Coronavirus testing document.
+    //Load in the Latest vaccine document.
+    QString filename;
+    filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
+                                             "Image File (*.png *jpg *jpeg)");
+    if(filename != ""){
+        int lastslash = filename.lastIndexOf("/");
+        QString shortname = filename.right(filename.size() - lastslash - 1);
 
+        QFile::copy(filename, "./images/" + shortname);
+        QPixmap pixmap("./images/" + shortname);
+        ui->testDocImage->setPixmap(pixmap);
+        ui->testDocImage->setScaledContents(true);
+        //save image filepath into data model.
+        covidTestImageFilepath = "./images/" + shortname;
+    }
 }
 
 
@@ -247,6 +399,7 @@ ModifyDialog::~ModifyDialog()
 {
     delete ui;
 }
+
 
 
 
