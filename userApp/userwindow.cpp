@@ -2,7 +2,7 @@
 #include "ui_userwindow.h"
 #include "citezin.h"
 #include "citezinreportissuedialog.h"
-#include "covidpassportdialog.h"
+
 #include "logindialog.h"
 #include <QFile>
 #include <QDialog>
@@ -18,6 +18,10 @@ UserWindow::UserWindow(QString nhi, QWidget *parent) :
 
     ui->setupUi(this);
     //n_Bview_clicked();
+    QGroupBox theBox;
+    theBox.setFlat(true);
+    theBox.setStyleSheet("border:0;");
+
     connect (ui->actionReport_Issue, &QAction::triggered,this,&UserWindow::on_actionReport_Issue_triggered);
 
     //connect (ui->actionLogout, &QAction::triggered,this,&UserWindow::on_actionLogout_triggered);
@@ -104,6 +108,16 @@ UserWindow::UserWindow(QString nhi, QWidget *parent) :
                ui->LPI_9->setText(PI_9x);
                ui->LPI_10->setText(PI_10x);
                ui->LPI_11->setText(PI_11x);
+
+               ui->CPI_6->setText(PI_3x);
+               ui->CPI_7->setText(PI_1x);
+               ui->CPI_8->setText(PI_4x);
+               ui->CPI_9->setText(citNHI);
+               ui->CPI_10->setText("20/12/2023");
+               ui->CVI_7->setText(PI_3x);
+               ui->CVI_8->setText(VI_5x);
+               ui->CVI_9->setText(VI_7x);
+
 
             }
         }

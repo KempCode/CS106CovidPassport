@@ -10,9 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     citezin.cpp \
-    citezindocdialog.cpp \
     citezinreportissuedialog.cpp \
-    covidpassportdialog.cpp \
     issue.cpp \
     logindialog.cpp \
     main.cpp \
@@ -20,17 +18,13 @@ SOURCES += \
 
 HEADERS += \
     citezin.h \
-    citezindocdialog.h \
     citezinreportissuedialog.h \
-    covidpassportdialog.h \
     issue.h \
     logindialog.h \
     userwindow.h
 
 FORMS += \
-    citezindocdialog.ui \
     citezinreportissuedialog.ui \
-    covidpassportdialog.ui \
     issue.ui \
     logindialog.ui \
     userwindow.ui
@@ -41,4 +35,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    Resources.qrc
+    Resources.qrc \
+    images.qrc \
+    img.qrc
+
+DISTFILES += \
+    images/qr.png

@@ -1,0 +1,12 @@
+debug/citezin.o
+debug/citezinreportissuedialog.o
+debug/issue.o
+debug/logindialog.o
+debug/main.o
+debug/userwindow.o
+debug/qrc_Resources.o
+debug/qrc_images.o
+debug/qrc_img.o
+debug/moc_citezinreportissuedialog.o
+debug/moc_logindialog.o
+debug/moc_userwindow.o
