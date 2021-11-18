@@ -21,6 +21,7 @@ public:
     void loadCitezinDetailsImage();
     void loadCitezinVaccineImage();
     void loadCitezinTestImage();
+    void loadQRImage();
 
 
 
@@ -39,8 +40,9 @@ private:
     QString imageFilePath;
     QString vaccineImageFilepath;
     QString covidTestImageFilepath;
+    QString qrImageFilepath="";
     QString testResult = "Untested";
-    int localCitezinVaccineNumber;
+    int localCitezinVaccineNumber=0;
 };
 
 #endif // CITEZINDETAILDIALOG_H

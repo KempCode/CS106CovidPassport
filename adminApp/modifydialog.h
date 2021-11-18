@@ -22,6 +22,7 @@ public:
     Citezin* loadVaccineDetails(Citezin* c1);
     Citezin* loadTestDetails(Citezin* c1);
     void modifyCitezin();
+    void loadQRImage();
 
 
 private slots:
@@ -35,6 +36,7 @@ private:
     Ui::ModifyDialog *ui;
     Citezin* newCitezin;
     int localCitezinVaccineNumber = 0;
+    QString qrImageFilepath="";
     QString testResult = "Untested";
     QString imageFilePath;
     QString vaccineImageFilepath;

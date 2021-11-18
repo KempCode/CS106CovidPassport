@@ -57,7 +57,7 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
 
     //Set vaccination Details.
 
-    ui->vaccineNameLabel->setText(newCitezin->getVaccineName());
+    ui->vaccineNameEdit->setText(newCitezin->getVaccineName());
     ui->vaccineNumber->setText(newCitezin->getCovidVaccineNumber());
 
     //Fill in vaccine 1 2 and 3 details.
@@ -95,6 +95,11 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     ui->testDocImage->setPixmap(pixmap3);
     ui->testDocImage->setScaledContents(true);
 
+    //QR code image document on modify window image.
+    QPixmap QRPixmap(newCitezin->getUserQRFilepath());
+    ui->QRImage->setPixmap(QRPixmap);
+    ui->QRImage->setScaledContents(true);
+
 
     //Hide items in vaccine menu. / Make not editable until valid.
     ui->vaccineNameEdit->setReadOnly(true);
@@ -121,22 +126,56 @@ ModifyDialog::ModifyDialog(Citezin*& newCitezin, QWidget *parent) :
     connect(ui->uploadTestDoc, &QPushButton::clicked,
             this, &ModifyDialog::loadCitezinTestImage);
 
-}
+    connect(ui->uploadQRButton, &QPushButton::clicked,
+            this, &ModifyDialog::loadQRImage);
 
+}
 
 
 void ModifyDialog::modifyCitezin(){
     //Function to handle the modification of the citezin.
-    //If Admin clicks one vaccine, it will retreive details for only one etc.
+    //Copy new user details to
 
-    //Add all of these
+    QString firstName = ui->firstNameEdit->text();
+    QString middleName = ui->middleNameEdit->text();
+    QString lastName = ui->lastNameEdit->text();
 
+    QDate birthDate = ui->dateEdit->date();
+    QString dobText = birthDate.toString("dd:MM:yyyy");
 
-    newCitezin = loadVaccineDetails(newCitezin);
-    newCitezin = loadTestDetails(newCitezin);
+    QString nationality = ui->nationalityEdit->text();
+    QString gender = ui->genderEdit->text();
+    QString phoneNumber = ui->phoneNumberEdit->text();
+    QString email = ui->emailEdit->text();
+    QString address = ui->addressEdit->text();
+    QString postCode = ui->postCodeEdit->text();
+    QString ethnicty = ui->ethnicityEdit->text();
+
+    QString NHI = ui->nhiEdit->text();
+    QString clinicName = ui->clinicNameEdit->text();
+    QString clinicAddress = ui->clinicAddressEdit->text();
+
+    Citezin* c4 = new Citezin("password123", firstName, middleName, lastName, dobText, ethnicty, nationality,
+              gender, phoneNumber, email, address, postCode, NHI, clinicName, clinicAddress, imageFilePath);
+
+    c4 = loadVaccineDetails(c4);
+    c4 = loadTestDetails(c4);
     //Set file path details.
-    newCitezin->setFileDetails("",vaccineImageFilepath, "", covidTestImageFilepath);
+    c4->setFileDetails("",vaccineImageFilepath, "", covidTestImageFilepath);
+
+    //Check for covid QR Passport.
+    if(localCitezinVaccineNumber >= 2){
+        //can keep qr image.
+        c4->setFileDetails("",vaccineImageFilepath, qrImageFilepath, covidTestImageFilepath);
+    }else{
+        QMessageBox::information(this, "warning", "User hasn't had enough vaccines to have Covid Passport.");
+        c4->setFileDetails("",vaccineImageFilepath, "", covidTestImageFilepath);
+    }
+
+
+    *newCitezin = *c4;
     this->close();
+
 }
 
 
@@ -343,6 +382,11 @@ void ModifyDialog::loadCitezinDetailsImage(){
     QString filename;
     filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
                                              "Image File (*.png *jpg *jpeg)");
+    //Open details certificate log file.
+    QFile citLogFile("./logs/citezinDetailsLog.txt");
+    citLogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&citLogFile);
+
     if(filename != ""){
         int lastslash = filename.lastIndexOf("/");
         QString shortname = filename.right(filename.size() - lastslash - 1);
@@ -353,14 +397,33 @@ void ModifyDialog::loadCitezinDetailsImage(){
         ui->userDetailsImage->setScaledContents(true);
         //save image filepath into data model.
         imageFilePath = "./images/" + shortname;
+
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Citezin Details document location: ";
+        out << imageFilePath;
+        out << "\n";
+
     }
+
+    //Close File Handles.
+    out.flush();
+    citLogFile.close();
 
 }
 void ModifyDialog::loadCitezinVaccineImage(){
-    //Load in the Latest vaccine document.
+    //Load in the Latest vaccine document
     QString filename;
     filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
                                              "Image File (*.png *jpg *jpeg)");
+    //Open vaccine certificate log file.
+    QFile vaxlogFile("./logs/vaccineLog.txt");
+    vaxlogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&vaxlogFile);
+
     if(filename != ""){
         int lastslash = filename.lastIndexOf("/");
         QString shortname = filename.right(filename.size() - lastslash - 1);
@@ -371,15 +434,34 @@ void ModifyDialog::loadCitezinVaccineImage(){
         ui->vaccineCertImage->setScaledContents(true);
         //save image filepath into data model.
         vaccineImageFilepath = "./images/" + shortname;
-    }
 
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Vaccine document location: ";
+        out << vaccineImageFilepath;
+        out << "\n";
+
+    }
+    //Close File Handles.
+    out.flush();
+    vaxlogFile.close();
 }
+
+
 void ModifyDialog::loadCitezinTestImage(){
     //Load image of the Coronavirus testing document.
     //Load in the Latest vaccine document.
     QString filename;
     filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
                                              "Image File (*.png *jpg *jpeg)");
+    //Open test certificate log file.
+    QFile testLogFile("./logs/testLog.txt");
+    testLogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&testLogFile);
+
     if(filename != ""){
         int lastslash = filename.lastIndexOf("/");
         QString shortname = filename.right(filename.size() - lastslash - 1);
@@ -390,10 +472,55 @@ void ModifyDialog::loadCitezinTestImage(){
         ui->testDocImage->setScaledContents(true);
         //save image filepath into data model.
         covidTestImageFilepath = "./images/" + shortname;
+
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Test document location: ";
+        out << covidTestImageFilepath;
+        out << "\n";
     }
+    //Close File Handles.
+    out.flush();
+    testLogFile.close();
 }
 
+void ModifyDialog::loadQRImage(){
+    //Load the QR code image in on button click
+    QString qrFilename;
+    qrFilename = QFileDialog::getOpenFileName(this, "Open Image", "./",
+                                             "Image File (*.png *jpg *jpeg)");
+    //Open QR certificate log file.
+    QFile QRLogFile("./logs/QRLog.txt");
+    QRLogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&QRLogFile);
 
+    if(qrFilename != ""){
+        int lastslash = qrFilename.lastIndexOf("/");
+        QString shortname = qrFilename.right(qrFilename.size() - lastslash - 1);
+
+        QFile::copy(qrFilename, "./images/" + shortname);
+        QPixmap pixmap("./images/" + shortname);
+        ui->QRImage->setPixmap(pixmap);
+        ui->QRImage->setScaledContents(true);
+        //save image filepath into data model.
+        qrImageFilepath = "./images/" + shortname;
+
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Vaccine document location: ";
+        out << qrImageFilepath;
+        out << "\n";
+    }
+    //Close File Handles.
+    out.flush();
+    QRLogFile.close();
+}
 
 ModifyDialog::~ModifyDialog()
 {

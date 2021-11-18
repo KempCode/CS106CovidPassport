@@ -33,6 +33,9 @@ citezinDetailDialog::citezinDetailDialog(Citezin*& newCitezin, QWidget *parent) 
     connect(ui->uploadTestDoc, &QPushButton::clicked,
             this, &citezinDetailDialog::loadCitezinTestImage);
 
+    connect(ui->uploadQRButton, &QPushButton::clicked,
+            this, &citezinDetailDialog::loadQRImage);
+
     //Initialise QDirectory
     //All images you upload have to go into ./images.
     QDir pathDir("./images");
@@ -90,8 +93,19 @@ void citezinDetailDialog::addCitezinDetails(){
            c1 = getVaccineDetails(c1);
            c1 = getTestDetails(c1);
            //Set file path details.
-           c1->setFileDetails("",vaccineImageFilepath, "", covidTestImageFilepath);
+
+           //Check for covid QR Passport.
+           if(localCitezinVaccineNumber >= 2){
+               //can keep qr image.
+               c1->setFileDetails("",vaccineImageFilepath, qrImageFilepath, covidTestImageFilepath);
+           }else{
+               QMessageBox::information(this, "warning", "User hasn't had enough vaccines to have Covid Passport.");
+               c1->setFileDetails("",vaccineImageFilepath, "", covidTestImageFilepath);
+           }
+
+
           *newCitezin = c1;
+
           this->close();
         //Open vaccine dialog.
 
@@ -104,22 +118,6 @@ void citezinDetailDialog::addCitezinDetails(){
 }
 
 
-void citezinDetailDialog::loadCitezinDetailsImage(){
-    QString filename;
-    filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
-                                             "Image File (*.png *jpg *jpeg)");
-    if(filename != ""){
-        int lastslash = filename.lastIndexOf("/");
-        QString shortname = filename.right(filename.size() - lastslash - 1);
-
-        QFile::copy(filename, "./images/" + shortname);
-        QPixmap pixmap("./images/" + shortname);
-        ui->userDetailsImage->setPixmap(pixmap);
-        ui->userDetailsImage->setScaledContents(true);
-        //save image filepath into data model.
-        imageFilePath = "./images/" + shortname;
-    }
-}
 
 
 
@@ -273,12 +271,53 @@ void citezinDetailDialog::on_vac3Radio_clicked()
     localCitezinVaccineNumber = 3;
 }
 
-
-void citezinDetailDialog::loadCitezinVaccineImage(){
-    //Load in the Latest vaccine document.
+void citezinDetailDialog::loadCitezinDetailsImage(){
     QString filename;
     filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
                                              "Image File (*.png *jpg *jpeg)");
+    //Open details certificate log file.
+    QFile citLogFile("./logs/citezinDetailsLog.txt");
+    citLogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&citLogFile);
+
+    if(filename != ""){
+        int lastslash = filename.lastIndexOf("/");
+        QString shortname = filename.right(filename.size() - lastslash - 1);
+
+        QFile::copy(filename, "./images/" + shortname);
+        QPixmap pixmap("./images/" + shortname);
+        ui->userDetailsImage->setPixmap(pixmap);
+        ui->userDetailsImage->setScaledContents(true);
+        //save image filepath into data model.
+        imageFilePath = "./images/" + shortname;
+
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Citezin Details document location: ";
+        out << imageFilePath;
+        out << "\n";
+
+    }
+
+    //Close File Handles.
+    out.flush();
+    citLogFile.close();
+}
+
+void citezinDetailDialog::loadCitezinVaccineImage(){
+    //Load in the Latest vaccine document
+    QString filename;
+    filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
+                                             "Image File (*.png *jpg *jpeg)");
+    //Open vaccine certificate log file.
+    QFile vaxlogFile("./logs/vaccineLog.txt");
+    vaxlogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&vaxlogFile);
+
+
     if(filename != ""){
         int lastslash = filename.lastIndexOf("/");
         QString shortname = filename.right(filename.size() - lastslash - 1);
@@ -289,8 +328,20 @@ void citezinDetailDialog::loadCitezinVaccineImage(){
         ui->vaccineCertImage->setScaledContents(true);
         //save image filepath into data model.
         vaccineImageFilepath = "./images/" + shortname;
-    }
 
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Vaccine document location: ";
+        out << vaccineImageFilepath;
+        out << "\n";
+
+    }
+    //Close File Handles.
+    out.flush();
+    vaxlogFile.close();
 }
 
 Citezin* citezinDetailDialog::getTestDetails(Citezin* c1){
@@ -342,6 +393,12 @@ void citezinDetailDialog::loadCitezinTestImage(){
     QString filename;
     filename = QFileDialog::getOpenFileName(this, "Open Image", "./",
                                              "Image File (*.png *jpg *jpeg)");
+
+    //Open test certificate log file.
+    QFile testLogFile("./logs/testLog.txt");
+    testLogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&testLogFile);
+
     if(filename != ""){
         int lastslash = filename.lastIndexOf("/");
         QString shortname = filename.right(filename.size() - lastslash - 1);
@@ -352,7 +409,54 @@ void citezinDetailDialog::loadCitezinTestImage(){
         ui->testDocImage->setScaledContents(true);
         //save image filepath into data model.
         covidTestImageFilepath = "./images/" + shortname;
+
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Test document location: ";
+        out << covidTestImageFilepath;
+        out << "\n";
     }
+    //Close File Handles.
+    out.flush();
+    testLogFile.close();
+}
+
+void citezinDetailDialog::loadQRImage(){
+    //Load the QR code image in on button click
+    QString qrFilename;
+    qrFilename = QFileDialog::getOpenFileName(this, "Open Image", "./",
+                                             "Image File (*.png *jpg *jpeg)");
+    //Open QR certificate log file.
+    QFile QRLogFile("./logs/QRLog.txt");
+    QRLogFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+    QTextStream out(&QRLogFile);
+
+    if(qrFilename != ""){
+        int lastslash = qrFilename.lastIndexOf("/");
+        QString shortname = qrFilename.right(qrFilename.size() - lastslash - 1);
+
+        QFile::copy(qrFilename, "./images/" + shortname);
+        QPixmap pixmap("./images/" + shortname);
+        ui->QRImage->setPixmap(pixmap);
+        ui->QRImage->setScaledContents(true);
+        //save image filepath into data model.
+        qrImageFilepath = "./images/" + shortname;
+
+        //Log the upload of the document
+        out << "Date: ";
+        out << QDate::currentDate().toString("dd:MM:yyyy");
+        out << ", Time: ";
+        out << QTime::currentTime().toString("hh:mm:ss");
+        out << ", Vaccine document location: ";
+        out << qrImageFilepath;
+        out << "\n";
+    }
+    //Close File Handles.
+    out.flush();
+    QRLogFile.close();
 }
 
 

@@ -35,8 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->BSearch, &QPushButton::clicked,this, &MainWindow::searchUser);
     connect(ui->Bremove, &QPushButton::clicked,this, &MainWindow::removeUser);
 
-
-
 }
 void MainWindow::editUser()
 {
@@ -81,9 +79,31 @@ void MainWindow::editUser()
            ui->LPI_12->setText(currentUser->getNationality());
            ui->LPI_13->setText(currentUser->getPhoneNumber());
 
-//            QPixmap pixmap(currentUser->getImageFilePath());
-//            ui->lblImage->setPixmap(pixmap);
-//            ui->lblImage->setScaledContents(true);
+
+           ui->label_5->setText(currentUser->getTimeOfFirstVaccine());
+           ui->label_6->setText(currentUser->getTimeOfSecondVaccine());
+           ui->VI_10->setText(currentUser->getTimeOfBooster());
+
+           //Setup the image pixel maps in the ui.
+           //User Details
+           QPixmap userDetailsPixmapMain(currentUser->getUserDetailsFilePath().trimmed());
+           ui->userDetailsImage->setPixmap(userDetailsPixmapMain);
+           ui->userDetailsImage->setScaledContents(true);
+           //Vaccine documentation image in main window.
+           QPixmap vaccineDocPixmapMain(currentUser->getUserDocumentFilePath().trimmed());
+           ui->vaccineCertImage->setPixmap(vaccineDocPixmapMain);
+           ui->vaccineCertImage->setScaledContents(true);
+
+           //Covid test document on main window image
+           QPixmap testDocPixmapMain(currentUser->getTestResultFilePath().trimmed());
+           ui->testDocImage->setPixmap(testDocPixmapMain);
+           ui->testDocImage->setScaledContents(true);
+
+           //QR code image document on main window image
+           QPixmap QRPixmapMain(currentUser->getUserQRFilepath().trimmed());
+           ui->QRImage->setPixmap(QRPixmapMain);
+           ui->QRImage->setScaledContents(true);
+
         }
     }
 
@@ -128,6 +148,30 @@ void MainWindow::removeUser()
     ui->LPI_11->setText("");
     ui->LPI_12->setText("");
     ui->LPI_13->setText("");
+    ui->label_5->setText("");
+    ui->label_6->setText("");
+    ui->VI_10->setText("");
+
+
+    //Remove images with arbiritray pixmap name
+    //User Details
+    QPixmap userDetailsPixmapMain("none.png");
+    ui->userDetailsImage->setPixmap(userDetailsPixmapMain);
+    ui->userDetailsImage->setScaledContents(true);
+    //Vaccine documentation image in main window.
+    QPixmap vaccineDocPixmapMain("none.png");
+    ui->vaccineCertImage->setPixmap(vaccineDocPixmapMain);
+    ui->vaccineCertImage->setScaledContents(true);
+
+    //Covid test document on main window image
+    QPixmap testDocPixmapMain("none.png");
+    ui->testDocImage->setPixmap(testDocPixmapMain);
+    ui->testDocImage->setScaledContents(true);
+
+    //QR code image document on main window image
+    QPixmap QRPixmapMain("none.png");
+    ui->QRImage->setPixmap(QRPixmapMain);
+    ui->QRImage->setScaledContents(true);
 
 }
 
@@ -146,7 +190,7 @@ void MainWindow::removeUser()
            for (int i=0; i<list.count(); i++)
            {
                QListWidgetItem* item = list.at(i);
-               item->setBackground(Qt::red);
+               item->setBackground(Qt::yellow);
            }
        }
        else
@@ -195,6 +239,29 @@ void MainWindow::userClicked()
          ui->LPI_11->setText(newCit->getPhoneNumber());
          ui->LPI_12->setText(newCit->getNationality());
          ui->LPI_13->setText(newCit->getPhoneNumber());
+         ui->label_5->setText(newCit->getTimeOfFirstVaccine());
+         ui->label_6->setText(newCit->getTimeOfSecondVaccine());
+         ui->VI_10->setText(newCit->getTimeOfBooster());
+
+         //Setup the image pixel maps in the ui.
+         //User Details
+         QPixmap userDetailsPixmapMain(newCit->getUserDetailsFilePath().trimmed());
+         ui->userDetailsImage->setPixmap(userDetailsPixmapMain);
+         ui->userDetailsImage->setScaledContents(true);
+         //Vaccine documentation image in main window.
+         QPixmap vaccineDocPixmapMain(newCit->getUserDocumentFilePath().trimmed());
+         ui->vaccineCertImage->setPixmap(vaccineDocPixmapMain);
+         ui->vaccineCertImage->setScaledContents(true);
+
+         //Covid test document on main window image
+         QPixmap testDocPixmapMain(newCit->getTestResultFilePath().trimmed());
+         ui->testDocImage->setPixmap(testDocPixmapMain);
+         ui->testDocImage->setScaledContents(true);
+
+         //QR code image document on main window image
+         QPixmap QRPixmapMain(newCit->getUserQRFilepath().trimmed());
+         ui->QRImage->setPixmap(QRPixmapMain);
+         ui->QRImage->setScaledContents(true);
     }
 
 }
@@ -211,7 +278,7 @@ void MainWindow::handleNewCitezin()
         //datamodel adding to qvec
         citezinList.push_back(newCit);
         //add to view vector main window widget.
-        ui->lstCitezins->addItem(newCit->getName());
+        ui->lstCitezins->addItem(newCit->getName().trimmed());
 
     }
 }
@@ -351,23 +418,25 @@ void MainWindow::loadCitezins(){
             ui->lstCitezins->addItem(currentCitezin.at(4));
 
             //Create a pointer to citezin, add correct values from csv then push to vec.
-            Citezin* newCit = new Citezin(currentCitezin.at(5), currentCitezin.at(1), currentCitezin.at(2),
-                                          currentCitezin.at(3), currentCitezin.at(6), currentCitezin.at(8),
-                                          currentCitezin.at(9), currentCitezin.at(10), currentCitezin.at(7),
-                                          currentCitezin.at(13), currentCitezin.at(11), currentCitezin.at(12),
-                                          currentCitezin.at(0), currentCitezin.at(14), currentCitezin.at(15),
-                                          currentCitezin.at(30));
+            Citezin* newCit = new Citezin(currentCitezin.at(5).trimmed(), currentCitezin.at(1).trimmed(), currentCitezin.at(2).trimmed(),
+                                          currentCitezin.at(3).trimmed(), currentCitezin.at(6).trimmed(), currentCitezin.at(8).trimmed(),
+                                          currentCitezin.at(9).trimmed(), currentCitezin.at(10).trimmed(), currentCitezin.at(7).trimmed(),
+                                          currentCitezin.at(13).trimmed(), currentCitezin.at(11).trimmed(), currentCitezin.at(12).trimmed(),
+                                          currentCitezin.at(0).trimmed(), currentCitezin.at(14).trimmed(), currentCitezin.at(15).trimmed(),
+                                          currentCitezin.at(30).trimmed());
 
 
-            newCit->setVaccineDetails(currentCitezin.at(16), currentCitezin.at(17), currentCitezin.at(18),
-                                      currentCitezin.at(19), currentCitezin.at(20).toInt(), currentCitezin.at(35),
-                                      currentCitezin.at(36), currentCitezin.at(24), currentCitezin.at(25),
-                                      currentCitezin.at(37), currentCitezin.at(21), currentCitezin.at(22), currentCitezin.at(23));
+            newCit->setVaccineDetails(currentCitezin.at(16).trimmed(), currentCitezin.at(17).trimmed(), currentCitezin.at(18).trimmed(),
+                                      currentCitezin.at(19).trimmed(), currentCitezin.at(20).toInt(), currentCitezin.at(35).trimmed(),
+                                      currentCitezin.at(36).trimmed(), currentCitezin.at(24).trimmed(), currentCitezin.at(25).trimmed(),
+                                      currentCitezin.at(37).trimmed(), currentCitezin.at(21).trimmed(), currentCitezin.at(22).trimmed(),
+                                      currentCitezin.at(23).trimmed());
 
-            newCit->setTestDetails(currentCitezin.at(26), currentCitezin.at(27), currentCitezin.at(34));
+            newCit->setTestDetails(currentCitezin.at(26).trimmed(), currentCitezin.at(27).trimmed(),
+                                   currentCitezin.at(34).trimmed());
 
-            newCit->setFileDetails(currentCitezin.at(28), currentCitezin.at(29), currentCitezin.at(31),
-                    currentCitezin.at(32));
+            newCit->setFileDetails(currentCitezin.at(28).trimmed(), currentCitezin.at(29).trimmed(), currentCitezin.at(31).trimmed(),
+                    currentCitezin.at(32).trimmed());
 
             //To output into debugger for unit testing.
             //qDebug() << QString(newCit->getUserPhotoFilepath());
