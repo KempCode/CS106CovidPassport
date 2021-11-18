@@ -17,7 +17,7 @@ public:
 
 private slots:
     void on_actionReport_Issue_triggered();
-
+    void logout();
    //void on_actionView_Certificate_triggered();
 
     //void on_actionLogout_triggered();

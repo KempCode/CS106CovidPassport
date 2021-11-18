@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/res">
-        <file>Resources/citezins.txt</file>
+        <file>images/background.png</file>
+        <file>images/C.png</file>
+        <file>images/citezins.txt</file>
+        <file>images/stamp.png</file>
+        <file>images/B.jpg</file>
+        <file>images/D.png</file>
+        <file>images/download.png</file>
     </qresource>
 </RCC>

@@ -31,7 +31,7 @@ void LoginDialog::on_pushButton_clicked()
     QString password = ui->Password->text();
 
     //Load all of the citezins in on click of the File > Load Button.
-    QString fileName(":/res/Resources/citezins.txt");
+    QString fileName(":/res/images/citezins.txt");
 
 
     if(QFileInfo::exists(fileName)){

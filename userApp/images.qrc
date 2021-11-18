@@ -5,5 +5,11 @@
     </qresource>
     <qresource prefix="/">
         <file>images/download.jfif</file>
+        <file>images/B.jpg</file>
+        <file>images/background.png</file>
+        <file>images/C.png</file>
+        <file>images/D.png</file>
+        <file>../../build-CS106CovidPassport-Desktop_Qt_5_12_11_MinGW_64_bit-Debug/images/B.jpg</file>
+        <file>images/download.png</file>
     </qresource>
 </RCC>

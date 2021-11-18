@@ -10,6 +10,7 @@
 #include <QString>
 #include <QFileInfo>
 #include <QDebug>
+#include <QFileDialog>
 
 UserWindow::UserWindow(QString nhi, QWidget *parent) :
     QMainWindow(parent),
@@ -24,14 +25,17 @@ UserWindow::UserWindow(QString nhi, QWidget *parent) :
 
     connect (ui->actionReport_Issue, &QAction::triggered,this,&UserWindow::on_actionReport_Issue_triggered);
 
-    //connect (ui->actionLogout, &QAction::triggered,this,&UserWindow::on_actionLogout_triggered);
-    //connect(ui->Bview,&QPushButton::clicked,this,&UserWindow::on_Bview_clicked);
+    connect (ui->actionLogout, &QAction::triggered,this,&UserWindow::logout);
+
 
     //Load in the user with a function.
     this->nhi = nhi;
 
 
-    QString fileName(":/res/Resources/citezins.txt");
+    QString fileName(":/res/images/citezins.txt");
+
+
+
 
     if(QFileInfo::exists(fileName))
     {
@@ -77,12 +81,67 @@ UserWindow::UserWindow(QString nhi, QWidget *parent) :
                      QString PI_10x =currentCitezin.at(12);
                       QString PI_11x =currentCitezin.at(7);
 
+                      QString userDetailsImagex=currentCitezin.at(29);
+                      QString vaccineCertImagex=currentCitezin.at(30);
+                       QString covid=currentCitezin.at(31);
+                       QString testDocImagex=currentCitezin.at(32);
+
+
 
 
             if (nhi ==citNHI)
             {
+ //userDetailsImage
+                //B
+                   //QPixmap(":res/images/" + userDetailsImagex);
+                 qDebug() << userDetailsImagex;
+                 QString f = userDetailsImagex;
+                 int lastSlash = f.lastIndexOf("/");
+                 QString  s = f.right(f.size()-lastSlash-1);
+qDebug() << s;
+                 QPixmap pixmap1(":res/images/"+s);
+
+                ui->userDetailsImage->setPixmap(pixmap1);
+                ui->userDetailsImage->setScaledContents(true);
+
+//vaccineCertImage
+               QString filename1 = vaccineCertImagex;
+                int lastSlash1 = filename1.lastIndexOf("/");
+               QString shortname1 = filename1.right(filename1.size()-lastSlash1-1);
+
+               QPixmap pixmap2(":res/images/" +shortname1);
+
+              ui->vaccineCertImage->setPixmap(pixmap2);
+              ui->vaccineCertImage->setScaledContents(true);
+//testDocImage
+            QString filename2 = testDocImagex;
+             int lastSlash2 = filename2.lastIndexOf("/");
+               QString shortname2 = filename2.right(filename2.size()-lastSlash2-1);
+              QPixmap pixmap3(":res/images/" +shortname2);
+
+             ui->testDocImage->setPixmap(pixmap3);
+              ui->testDocImage->setScaledContents(true);
+//QRCODE
+             QString filename3 = covid;
+              int lastSlash3 = filename3.lastIndexOf("/");
+             QString shortname3 = filename3.right(filename3.size()-lastSlash3-1);
+
+              QPixmap pixmap4(":res/images/" +shortname3);
+
+            ui->covid->setPixmap(pixmap4);
+            ui->covid_2->setPixmap(pixmap4);
+             ui->covid->setScaledContents(true);
+             ui->covid_2->setScaledContents(true);
 
 
+
+/*
+                ui->userDetailsImage->setPixmap(userDetailsImagex);
+                ui->vaccineCertImage->setPixmap(vaccineCertImagex);
+                ui->testDocImage->setPixmap(testDocImagex);
+                ui->covid->setPixmap(covid);
+
+*/
                ui->VI_1->setText(VI_1x);
                ui->VI_2->setText(VI_2x);
                ui->VI_3->setText(VI_3x);
@@ -134,11 +193,22 @@ UserWindow::~UserWindow()
 
 void UserWindow::on_actionReport_Issue_triggered()
 {
-    Issue *newissue =nullptr;
-    citezinReportIssueDialog issue(newissue,nullptr);
+
+    citezinReportIssueDialog issue(nhi,nullptr);
     issue.setModal(true);
     issue.exec();
 }
 
 
+
+
+void UserWindow::logout()
+{
+
+
+
+   this->close();
+   LoginDialog login;
+   login.setModal(true);
+}
 

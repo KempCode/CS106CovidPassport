@@ -2,16 +2,17 @@
 #include "ui_citezinreportissuedialog.h"
 #include <QMessageBox>
 #include <QFile>
+#include <QFileDialog>
 #include <QTextStream>
 #include <QStringList>
-
-citezinReportIssueDialog::citezinReportIssueDialog(Issue*& newissue, QWidget *parent) :
+#include <QDate>
+citezinReportIssueDialog::citezinReportIssueDialog(QString nhi, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::citezinReportIssueDialog)
 {
-    this->newissue=&newissue;
-    ui->setupUi(this);
 
+    ui->setupUi(this);
+    this->nhi = nhi;
     //registering events
     connect(ui->submit,&QPushButton::clicked,this,&citezinReportIssueDialog::confirmSubmit);
 }
@@ -23,27 +24,24 @@ citezinReportIssueDialog::~citezinReportIssueDialog()
 
 void citezinReportIssueDialog::confirmSubmit()
 {
+QString productIssue = ui->reportissue->text();
 
-    QString productIssue =ui->reportissue->text();
-    if(productIssue.trimmed() != "")
-    {
-        *newissue = new Issue(productIssue);
-        this->close();
-    }
-    else
-    {
-        QMessageBox mb;
-        mb.setText("Enter issue");
-        mb.exec();
-    }
+if(productIssue.trimmed() != "")
+{
+    QFile outputFile ("issue.txt");
+    outputFile.open(QIODevice::WriteOnly|QIODevice::Append|QIODevice::Text);
+    QTextStream out(&outputFile);
 
-    //FILE
-     QFile outputFile ("issue.txt");
-     outputFile.open(QIODevice::WriteOnly|QIODevice::Text);
-     QTextStream out(&outputFile);
 
-     for (Issue * productIssue:reportissue)
-     {
-         out<<productIssue->getIssue()<<",";//<<Qt::endl;
-     }
+    out << nhi;
+    out << ", ";
+    out << ui->reportissue->text();
+    out << ", ";
+    out<<QDate::currentDate().toString("dd::MM::yyyy");
+    out<< " , ";
+    out << "\n";
+
+    this->close();
+}
+
 }

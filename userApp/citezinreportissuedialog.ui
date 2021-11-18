@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>534</width>
-    <height>534</height>
+    <width>577</width>
+    <height>486</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,15 +16,14 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>20</y>
-     <width>474</width>
-     <height>447</height>
+     <width>541</width>
+     <height>451</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-background-color: rgb(248, 224, 11);</string>
+    <string notr="true">background-color: rgb(65, 65, 65);</string>
    </property>
    <property name="title">
     <string/>
@@ -32,7 +31,7 @@ background-color: rgb(248, 224, 11);</string>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>50</x>
       <y>20</y>
       <width>432</width>
       <height>403</height>
