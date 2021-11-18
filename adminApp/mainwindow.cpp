@@ -8,6 +8,7 @@
 #include <QDialog>
 #include <QTextStream>
 #include <QDebug>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->lstCitezins, &QListWidget::itemClicked,this,&MainWindow::userClicked);
     connect(ui->BSearch, &QPushButton::clicked,this, &MainWindow::searchUser);
     connect(ui->Bremove, &QPushButton::clicked,this, &MainWindow::removeUser);
+
 
 }
 void MainWindow::editUser()

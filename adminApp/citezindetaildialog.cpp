@@ -44,6 +44,12 @@ citezinDetailDialog::citezinDetailDialog(Citezin*& newCitezin, QWidget *parent) 
         QDir().mkdir("./images");
     }
 
+    QDir pathDir2("./logs");
+    if(!pathDir2.exists()){
+        //If path doesn't exist already, specify it in constructor.
+        QDir().mkdir("./logs");
+    }
+
     //Hide items in vaccine menu. / Make not editable until valid.
     ui->vaccineNameEdit->setReadOnly(true);
     ui->vaccineNumber->setReadOnly(true);
