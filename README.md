@@ -1,6 +1,8 @@
 # CS106CovidPassport
 This is a Yoobee College CS106 Software Engineering conceptual project that is built in C++ with QT, to allow citizens of New Zealand to access their Covid Vaccination and test details easily.
 
+![CovidApp](https://github.com/Kempster33/CS106CovidPassport/assets/15764472/5eeae9f9-4a2d-46fa-81be-00c16dc8bcf4)
+
 # Setting up a Qt Widgets Application on Windows
 
 Before you begin, make sure you have Visual Studio installed.
